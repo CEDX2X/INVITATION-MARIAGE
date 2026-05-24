@@ -1,0 +1,6 @@
+{
+  "name": "Invitation de Mariage Digitale",
+  "description": "Une invitation de mariage numérique haut de gamme, élégante et interactive pour WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

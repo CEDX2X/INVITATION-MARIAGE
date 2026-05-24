@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  /* Core Gold adjustments */
+  --color-gold-50: #2c2825;
+  --color-gold-100: #3e3831;
+  --color-gold-200: #e6d3a8;
+  --color-gold-300: #B08D57; /* Essential Theme gold color */
+  --color-gold-400: #cbb185;
+  --color-gold-500: #B08D57;
+  --color-gold-600: #94713c;
+  --color-gold-700: #71552b;
+  
+  /* Layout shifts */
+  --color-ivory: #1E1C1A; /* Luxurious dark charcoal default background */
+  --color-darksoft: #FDFBF7; /* Outstanding white-ivory contrast */
+  --color-warm-beige: #2a2825; /* Soft dark-mode item contrast card background */
+}
+
+/* Custom scrollbar and premium CSS override rules for Elegant Dark theme */
+body {
+  font-family: var(--font-sans);
+  background-color: #1a1816;
+  color: #FDFBF7;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Force dark card designs over pure light values to match Elegant Dark */
+.bg-white {
+  background-color: #272522 !important;
+  color: #FDFBF7 !important;
+}
+
+/* Override sections bg-ivory/50 */
+.bg-ivory\/50 {
+  background-color: rgba(30, 28, 26, 0.7) !important;
+}
+
+/* Custom golden border definitions for Elegant Dark theme */
+.border-stone-100, .border-stone-200, .border-gold-100, .border-gold-200 {
+  border-color: rgba(176, 141, 87, 0.25) !important;
+}
+
+.border-stone-250 {
+  border-color: rgba(176, 141, 87, 0.35) !important;
+}
+
+.border-gold-double {
+  border: 3px double #B08D57 !important;
+}
+
+/* Redefine form input focus states and input values */
+input, select, textarea {
+  background-color: #1c1a18 !important;
+  color: #FDFBF7 !important;
+  border-color: rgba(176, 141, 87, 0.3) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #B08D57 !important;
+  box-shadow: 0 0 0 1px #B08D57 !important;
+}
+
+/* Custom layout shadows */
+.shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Redefine labels and subtext colors to be warm gold or high contrast beige output */
+.text-stone-400, .text-stone-500 {
+  color: #cbb185 !important;
+}
+
+.text-stone-600 {
+  color: #e5dfd5 !important;
+}
+
+.text-stone-700, .text-stone-800 {
+  color: #FDFBF7 !important;
+}
+
+.luxury-title-shadow {
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #e6d3a8 0%, #B08D57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #e6d3a8 0%, #B08D57 50%, #8c641d 100%);
+}
+
+.bg-gold-gradient-hover {
+  background: linear-gradient(135deg, #f5eedc 0%, #c49a45 50%, #ac802d 100%);
+}
+
+/* Custom animation classes */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}

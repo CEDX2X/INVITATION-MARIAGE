@@ -1,0 +1,71 @@
+import { useState } from "react";
+import Hero from "./components/Hero";
+import Welcome from "./components/Welcome";
+import Countdown from "./components/Countdown";
+import Program from "./components/Program";
+import Location from "./components/Location";
+import Gallery from "./components/Gallery";
+import RSVP from "./components/RSVP";
+import Gift from "./components/Gift";
+import Footer from "./components/Footer";
+import MusicPlayer from "./components/MusicPlayer";
+import { weddingData } from "./data/weddingData";
+
+export default function App() {
+  const [isInvitationOpened, setIsInvitationOpened] = useState(false);
+
+  const handleOpenInvitation = () => {
+    setIsInvitationOpened(true);
+  };
+
+  return (
+    <div className="relative min-h-screen bg-ivory text-darksoft selection:bg-gold-200 selection:text-gold-800">
+      
+      {/* Immersive Background Music Player */}
+      <MusicPlayer 
+        audioUrl={weddingData.audioMusicUrl} 
+        autoPlayTrigger={isInvitationOpened} 
+      />
+
+      {/* Main Page Layout */}
+      <div className="flex flex-col w-full mx-auto max-w-[1200px] shadow-2xl relative bg-ivory">
+        
+        {/* 1. Hero Section */}
+        <Hero 
+          data={weddingData} 
+          onOpen={handleOpenInvitation} 
+          isOpen={isInvitationOpened} 
+        />
+
+        {/* Core content sections wrapped in elegant container */}
+        <div className="relative z-25">
+          
+          {/* 2. Welcome/Introduction Section */}
+          <Welcome data={weddingData} />
+
+          {/* 3. Countdown Section */}
+          <Countdown data={weddingData} />
+
+          {/* 4. Timeline Program Section */}
+          <Program data={weddingData} />
+
+          {/* 5. Venue & Maps Location Section */}
+          <Location data={weddingData} />
+
+          {/* 6. Romantic Gallery Section */}
+          <Gallery data={weddingData} />
+
+          {/* 7. Interactive RSVP Confirmation Section */}
+          <RSVP data={weddingData} />
+
+          {/* 8. Contribution Gifts Section */}
+          <Gift data={weddingData} />
+
+          {/* 9. Romantic Quote Summary & Footer Section */}
+          <Footer data={weddingData} />
+          
+        </div>
+      </div>
+    </div>
+  );
+}
