@@ -39,13 +39,13 @@ export const weddingData: WeddingData = {
   groomName: "Charlie",
   weddingDateFormatted: "Samedi 12 Septembre 2026",
   countdownDate: "2026-09-12T15:00:00",
-  whatsappNumber: "+33600000000", // Remplacer par le numéro des mariés
+  whatsappNumber: "+237688806414", // Remplacer par le numéro des mariés
   welcomeText: "Cher(e) invité(e), c'est avec une immense joie et beaucoup d'émotion que nous vous invitons à célébrer avec nous le premier jour du reste de notre vie. Votre présence à nos côtés rendra cette journée inoubliable.",
   venueName: "Domaine de la Roseraie d'Or",
   venueAddress: "Chemin des Collines Dorées, 75016 Paris, France",
   venueGoogleMapsUrl: "https://maps.google.com/?q=Domaine+de+la+Roseraie+d+Or",
   giftNote: "Votre présence à nos côtés est notre plus beau cadeau. Cependant, si vous souhaitez contribuer à notre nouvelle vie à deux ou à notre voyage de noces, une boîte à contributions sera disponible le jour J, ou vous pouvez utiliser nos coordonnées Mobile Money ci-dessous.",
-  mobileMoneyNumber: "+33 6 00 00 00 00",
+  mobileMoneyNumber: "+237688806414",
   mobileMoneyName: "Elena & Charlie",
   showGiftSection: true,
   romanticPhrase: "L'amour n'est pas seulement un regard que l'on se porte, c'est un regard jeté ensemble dans la même direction.",
