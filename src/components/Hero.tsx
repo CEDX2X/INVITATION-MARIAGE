@@ -18,7 +18,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="relative h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4">
+    <section id="hero" className="hero h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -56,14 +56,12 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         </motion.p>
         
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.6 }}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl font-extralight text-white leading-tight tracking-wide my-4 px-4"
+          className="couple-names my-5 px-4"
         >
-          <span className="block">{data.brideName}</span>
-          <span className="block text-gold-300 font-serif italic text-3xl sm:text-4xl md:text-5xl my-1">&</span>
-          <span className="block">{data.groomName}</span>
+          {data.brideName} <span className="text-gold-300 font-serif italic text-2xl sm:text-3xl">&</span> {data.groomName}
         </motion.h1>
 
         <motion.div

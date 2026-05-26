@@ -33,7 +33,7 @@ export default function Location({ data }: LocationProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-gold-600 mb-2"
+            className="section-title mb-6"
           >
             Le Lieu
           </motion.h2>
@@ -67,7 +67,7 @@ export default function Location({ data }: LocationProps) {
             </p>
 
             {/* Address box */}
-            <div className="bg-white rounded-2xl p-5 border border-stone-100 flex items-start gap-3 text-left w-full max-w-md shadow-sm">
+            <div className="event-card p-5 text-left w-full max-w-md shadow-sm">
               <MapPin className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-sans font-semibold text-xs uppercase tracking-wider text-stone-400">
@@ -84,7 +84,7 @@ export default function Location({ data }: LocationProps) {
               href={data.venueGoogleMapsUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-500 hover:bg-gold-600 active:scale-95 text-white font-sans text-xs uppercase tracking-widest font-medium shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-600 hover:bg-gold-500 active:scale-95 text-white font-sans text-xs uppercase tracking-widest font-medium shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer w-full sm:w-auto justify-center"
             >
               <Compass className="w-4 h-4" />
               <span>Voir sur Google Maps</span>

@@ -43,7 +43,7 @@ export default function Gift({ data }: GiftProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-gold-600 mb-2"
+          className="section-title mb-6"
         >
           Cadeaux & Contributions
         </motion.h2>
@@ -88,7 +88,7 @@ export default function Gift({ data }: GiftProps) {
               transition={{ duration: 0.4 }}
               className="mt-6 overflow-hidden max-w-sm mx-auto"
             >
-              <div className="bg-ivory rounded-2xl p-5 border border-gold-200/50 text-left space-y-4 shadow-sm relative">
+              <div className="event-card p-5 text-left space-y-4 shadow-sm relative">
                 <div className="absolute top-4 right-4 pointer-events-none opacity-10">
                   <Heart className="w-12 h-12 text-gold-500 fill-gold-500" />
                 </div>

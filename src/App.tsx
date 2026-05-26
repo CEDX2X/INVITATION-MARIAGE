@@ -47,7 +47,7 @@ export default function App() {
       />
 
       {/* Main Page Layout */}
-      <div className="flex flex-col w-full mx-auto max-w-[1200px] shadow-2xl relative bg-ivory">
+      <div className="invitation flex flex-col w-full relative">
         
         {/* 1. Hero Section */}
         <Hero 

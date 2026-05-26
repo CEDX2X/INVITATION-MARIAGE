@@ -50,7 +50,7 @@ export default function Program({ data }: ProgramProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-gold-600 mb-2"
+            className="section-title mb-6"
           >
             Le Déroulement
           </motion.h2>
@@ -67,7 +67,7 @@ export default function Program({ data }: ProgramProps) {
         </div>
 
         {/* Timeline Event List */}
-        <div className="relative pl-6 sm:pl-8 border-l border-gold-200/80 max-w-xl mx-auto space-y-12">
+        <div className="program-list relative pl-6 sm:pl-8 border-l border-gold-200/80 max-w-xl mx-auto space-y-12">
           {data.program.map((event, index) => (
             <motion.div
               key={event.id}
@@ -83,7 +83,7 @@ export default function Program({ data }: ProgramProps) {
               </div>
 
               {/* Card Container */}
-              <div className="bg-ivory/50 rounded-2xl p-5 sm:p-6 border border-stone-100 hover:border-gold-200 hover:bg-gold-50/10 transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_25px_rgba(140,100,29,0.03)]">
+              <div className="event-card p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-2">
                   <span className="font-mono text-xs font-semibold bg-gold-600 text-white px-3 py-1 rounded-full tracking-wider">
                     {event.time}

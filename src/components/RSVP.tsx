@@ -74,7 +74,7 @@ Merci pour votre invitation !`;
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-gold-600 mb-2"
+            className="section-title mb-6"
           >
             S'il vous plaît
           </motion.h2>
@@ -99,7 +99,7 @@ Merci pour votre invitation !`;
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="bg-white rounded-3xl p-6 sm:p-10 border border-gold-200/50 shadow-[0_20px_50px_rgba(140,100,29,0.08)] relative overflow-hidden"
+          className="event-card p-6 sm:p-10 relative overflow-hidden"
         >
           {/* Internal Elegant Double Border Frame */}
           <div className="absolute inset-4 sm:inset-5 border border-gold-200/40 pointer-events-none rounded-2xl" />
@@ -210,10 +210,8 @@ Merci pour votre invitation !`;
                 <button
                   type="submit"
                   disabled={attending === null}
-                  className={`w-full py-4 px-6 rounded-2xl font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 text-white shadow-md active:scale-98 ${
-                    attending === null
-                      ? "bg-stone-300 cursor-not-allowed"
-                      : "bg-gold-500 hover:bg-gold-600 shadow-[0_5px_15px_rgba(172,128,45,0.2)] cursor-pointer"
+                  className={`w-full rsvp-button ${
+                    attending === null ? "opacity-55 cursor-not-allowed pointer-events-none" : ""
                   }`}
                 >
                   Confirmer ma Présence via WhatsApp

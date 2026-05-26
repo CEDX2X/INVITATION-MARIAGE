@@ -44,9 +44,9 @@ export default function Welcome({ data }: WelcomeProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.2, delay: 0.1 }}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold-500 font-light my-4 tracking-wider leading-none"
+          className="couple-names my-4 leading-none"
         >
-          {data.brideName} <span className="font-serif italic text-3xl md:text-4xl text-gold-400">&</span> {data.groomName}
+          {data.brideName} <span className="font-serif italic text-3xl md:text-4xl text-gold-300">&</span> {data.groomName}
         </motion.h3>
 
         {/* Elegant Photo with gold border */}
@@ -81,10 +81,9 @@ export default function Welcome({ data }: WelcomeProps) {
             {data.welcomeText}
           </p>
           
-          <div className="flex justify-center items-center gap-4 py-6">
-            <div className="w-16 h-[1px] bg-[#F39EBF]/30" />
-            <span className="font-serif italic text-[#F39EBF] text-lg">Save the Date</span>
-            <div className="w-16 h-[1px] bg-[#F39EBF]/30" />
+          <div className="floral-divider py-6">
+            <span className="floral-divider-icon">🌹</span>
+            <span className="font-serif italic text-white text-base tracking-widest font-light ml-1">Save the Date</span>
           </div>
 
           {/* Elegant Dress Code section matching the card image */}

@@ -14,8 +14,10 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
 
   const handleOpen = () => {
     setIsOpening(true);
-    onOpen();
-    // Finish animations and unlock standard site view
+    // Let the animations run fully to match the premium cinematic tempo
+    setTimeout(() => {
+      onOpen();
+    }, 1200);
     setTimeout(() => {
       setIsDone(true);
       document.body.style.overflow = "unset";
@@ -190,7 +192,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
               <div 
                 className="w-20 h-20 bg-gradient-to-br from-[#FFEBAE] via-[#C99C35] to-[#75550D] shadow-[0_8px_25px_rgba(0,0,0,0.55),_inset_0_2px_4px_rgba(255,255,255,0.4)] border border-[#FFEBAE]/30 flex items-center justify-center transform group-hover:scale-110 active:scale-95 transition-all duration-300"
                 style={{ 
-                  borderRadius: "45% 55% 52% 48% / 50% 48% 52% 50%" // Organic organic hand-poured wax shape
+                  borderRadius: "45% 55% 52% 48% / 50% 48% 52% 50%" // Organic hand-poured wax shape
                 }}
               >
                 {/* Embedded Stamp Ring detailing */}
