@@ -36,20 +36,20 @@ export interface WeddingData {
 }
 
 export const weddingData: WeddingData = {
-  brideName: "Elena",
-  groomName: "Charlie",
-  weddingDateFormatted: "Samedi 12 Septembre 2026",
-  countdownDate: "2026-09-12T15:00:00",
-  whatsappNumber: "+33600000000", // Remplacer par le numéro des mariés
-  welcomeText: "Cher(e) invité(e), c'est avec une immense joie et beaucoup d'émotion que nous vous invitons à célébrer avec nous le premier jour du reste de notre vie. Votre présence à nos côtés rendra cette journée inoubliable.",
-  venueName: "Domaine de la Roseraie d'Or",
-  venueAddress: "Chemin des Collines Dorées, 75016 Paris, France",
-  venueGoogleMapsUrl: "https://maps.google.com/?q=Domaine+de+la+Roseraie+d+Or",
-  giftNote: "Votre présence à nos côtés est notre plus beau cadeau. Cependant, si vous souhaitez contribuer à notre nouvelle vie à deux ou à notre voyage de noces, une boîte à contributions sera disponible le jour J, ou vous pouvez utiliser nos coordonnées Mobile Money ci-dessous.",
-  mobileMoneyNumber: "+33 6 00 00 00 00",
-  mobileMoneyName: "Elena & Charlie",
+  brideName: "Fabiola",
+  groomName: "Placide",
+  weddingDateFormatted: "Samedi 27 Juin 2026",
+  countdownDate: "2026-06-27T10:00:00",
+  whatsappNumber: "+237699999999", // Référence Cameroun
+  welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil. Votre présence à nos côtés rendra cette journée inoubliable.",
+  venueName: "Au jardin de René",
+  venueAddress: "Santa Barbara, Yaoundé, Cameroun",
+  venueGoogleMapsUrl: "https://maps.google.com/?q=Jardin+de+Rene+Santa+Barbara+Yaounde",
+  giftNote: "Une liste de cadeaux est disponible aux magasins Orca Douala et Yaoundé au nom du couple MBANG OYONO.",
+  mobileMoneyNumber: "MBANG OYONO",
+  mobileMoneyName: "MBANG OYONO",
   showGiftSection: true,
-  romanticPhrase: "L'amour n'est pas seulement un regard que l'on se porte, c'est un regard jeté ensemble dans la même direction.",
+  romanticPhrase: "Deux vies, deux cœurs, unis pour un seul et même voyage.",
   audioMusicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", // Musique douce par défaut ou laisser vide
   snapchatFilterUrl: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=3b3eb321fcef46f592ba26ec91ffbbcc&metadata=01", // Mettez votre lien de filtre Snapchat ici
   heroImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2669&auto=format&fit=crop",
@@ -83,44 +83,16 @@ export const weddingData: WeddingData = {
   program: [
     {
       id: "civil",
-      time: "14h00",
-      title: "Cérémonie Civile",
-      description: "Notre union à la mairie principale du 16ème arrondissement.",
+      time: "10h00",
+      title: "Célébration Civile",
+      description: "Notre union civile célébrée au magnifique jardin de René.",
       iconName: "rings"
     },
     {
-      id: "religious",
-      time: "15h30",
-      title: "Cérémonie Laïque/Religieuse",
-      description: "Une célébration pleine d'émotion sous l'arche fleurie du parc.",
-      iconName: "church"
-    },
-    {
-      id: "photos",
-      time: "17h00",
-      title: "Séance Photo",
-      description: "Quelques clichés avec vous pour capturer ces merveilleux moments.",
-      iconName: "camera"
-    },
-    {
-      id: "cocktail",
-      time: "18h00",
-      title: "Cocktail & Réception",
-      description: "Rafraîchissements, petits fours, rires et musiques festives.",
-      iconName: "glass"
-    },
-    {
-      id: "dinner",
-      time: "20h00",
-      title: "Dîner de Noces",
-      description: "Un repas gastronomique aux bougies dans la grande verrière.",
-      iconName: "plate"
-    },
-    {
       id: "party",
-      time: "23h00",
+      time: "20h00",
       title: "Soirée Dansante",
-      description: "Ouverture de bal suivie d'une célébration jusqu'au bout de la nuit.",
+      description: "Une réception magique et animée sous les étoiles pour fêter notre amour.",
       iconName: "music"
     }
   ]

@@ -93,7 +93,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <button
           id="btn-ouvrir-invitation"
           onClick={handleOpenClick}
-          className="group relative px-8 py-3.5 rounded-full overflow-hidden border border-gold-300 bg-black/40 text-gold-100 font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:border-gold-200 hover:text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+          className="group relative px-8 py-3.5 rounded-full overflow-hidden border border-gold-300 bg-black/40 text-white font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:border-gold-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
         >
           {/* Gentle glow effect behind or inside button */}
           <span className="absolute inset-0 w-full h-full bg-gold-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
