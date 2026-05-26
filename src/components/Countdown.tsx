@@ -106,7 +106,7 @@ export default function Countdown({ data }: CountdownProps) {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_10px_20px_rgba(140,100,29,0.04)] border border-stone-100"
               >
-                <span className="font-serif font-light text-2xl sm:text-3xl md:text-4xl text-gold-500 tracking-tight">
+                <span className="font-serif font-light text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
                   {block.value.toString().padStart(2, "0")}
                 </span>
                 <span className="text-[10px] sm:text-xs uppercase tracking-widest text-stone-400 font-sans font-medium mt-2">

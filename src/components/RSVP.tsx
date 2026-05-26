@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Send, Heart, HeartOff, CheckCircle } from "lucide-react";
 import { WeddingData } from "../data/weddingData";

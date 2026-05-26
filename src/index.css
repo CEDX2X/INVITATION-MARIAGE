@@ -5,101 +5,114 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", sans-serif;
   
-  /* Core Gold adjustments */
-  --color-gold-50: #2c2825;
-  --color-gold-100: #3e3831;
-  --color-gold-200: #e6d3a8;
-  --color-gold-300: #B08D57; /* Essential Theme gold color */
-  --color-gold-400: #cbb185;
-  --color-gold-500: #B08D57;
-  --color-gold-600: #94713c;
-  --color-gold-700: #71552b;
+  /* Core Romantic Rose & Bordeaux gradients */
+  --color-gold-50: #1c020b;      /* Noir d'encre rose intense */
+  --color-gold-100: #330314;     /* Très sombre bordeaux */
+  --color-gold-200: #F39EBF;     /* Rose poudré doux */
+  --color-gold-300: #DF016E;     /* Fuchsia vif / Framboise royale */
+  --color-gold-400: #E51D2E;     /* Rouge éclatant passion */
+  --color-gold-500: #C70039;     /* Rouge carmin */
+  --color-gold-600: #900C3F;     /* Lie-de-vin bordeaux */
+  --color-gold-700: #580C2E;     /* Sépale bordeaux impérial */
   
-  /* Layout shifts */
-  --color-ivory: #1E1C1A; /* Luxurious dark charcoal default background */
-  --color-darksoft: #FDFBF7; /* Outstanding white-ivory contrast */
-  --color-warm-beige: #2a2825; /* Soft dark-mode item contrast card background */
+  /* Layout shifts adapting to the Uploaded Color Palette - Noir absolu */
+  --color-ivory: #000000;        /* Fond général noir absolu */
+  --color-darksoft: #FFF0F5;     /* Texte blanc rosé doux à haute lisibilité */
+  --color-warm-beige: #090205;   /* Fond de carte noir raffiné très légèrement rosé */
 }
 
-/* Custom scrollbar and premium CSS override rules for Elegant Dark theme */
+/* Custom scrollbar and premium CSS override rules for the Elegant Black & Sparkling Rose theme */
 body {
   font-family: var(--font-sans);
-  background-color: #1a1816;
-  color: #FDFBF7;
+  background-color: #000000;
+  color: #FFF0F5;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* Force dark card designs over pure light values to match Elegant Dark */
+/* Force dark card designs over pure light values to match the romantic black palette */
 .bg-white {
-  background-color: #272522 !important;
-  color: #FDFBF7 !important;
+  background-color: #0d0407 !important;
+  color: #FFF0F5 !important;
 }
 
-/* Override sections bg-ivory/50 */
+/* Override sections to hold a luxury dark black tint */
 .bg-ivory\/50 {
-  background-color: rgba(30, 28, 26, 0.7) !important;
+  background-color: rgba(0, 0, 0, 0.85) !important;
 }
 
-/* Custom golden border definitions for Elegant Dark theme */
+/* Custom romantic border definitions using the warm bordeaux/rose shades */
 .border-stone-100, .border-stone-200, .border-gold-100, .border-gold-200 {
-  border-color: rgba(176, 141, 87, 0.25) !important;
+  border-color: rgba(243, 158, 191, 0.25) !important;
 }
 
 .border-stone-250 {
-  border-color: rgba(176, 141, 87, 0.35) !important;
+  border-color: rgba(243, 158, 191, 0.35) !important;
 }
 
 .border-gold-double {
-  border: 3px double #B08D57 !important;
+  border: 3px double #F39EBF !important;
 }
 
-/* Redefine form input focus states and input values */
+/* Redefine form input focus states and input values with bordeaux highlights */
 input, select, textarea {
-  background-color: #1c1a18 !important;
-  color: #FDFBF7 !important;
-  border-color: rgba(176, 141, 87, 0.3) !important;
+  background-color: #22030d !important;
+  color: #FFF0F5 !important;
+  border-color: rgba(243, 158, 191, 0.3) !important;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #B08D57 !important;
-  box-shadow: 0 0 0 1px #B08D57 !important;
+  border-color: #DF016E !important;
+  box-shadow: 0 0 0 1px #DF016E !important;
 }
 
-/* Custom layout shadows */
+/* Custom romantic layout shadows */
 .shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl {
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Redefine labels and subtext colors to be warm gold or high contrast beige output */
+/* Redefine labels and subtext colors to be warm gold or high contrast rose output */
 .text-stone-400, .text-stone-500 {
-  color: #cbb185 !important;
+  color: #F39EBF !important;
 }
 
 .text-stone-600 {
-  color: #e5dfd5 !important;
+  color: #ffd8e6 !important;
 }
 
 .text-stone-700, .text-stone-800 {
-  color: #FDFBF7 !important;
+  color: #FFF0F5 !important;
+}
+
+/* Exclude active button text color overrides from being forced white so they stay visible */
+button.bg-white, .bg-white select {
+  color: #FFF0F5 !important;
 }
 
 .luxury-title-shadow {
-  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.82);
 }
 
+/* Beautiful color text gradient matching the rose/fuchsia/red upload */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #e6d3a8 0%, #B08D57 100%);
+  background: linear-gradient(135deg, #F39EBF 0%, #DF016E 50%, #E51D2E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Beautiful solid premium background gradients */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #e6d3a8 0%, #B08D57 50%, #8c641d 100%);
+  background: linear-gradient(135deg, #E51D2E 0%, #DF016E 50%, #580C2E 100%);
 }
 
 .bg-gold-gradient-hover {
-  background: linear-gradient(135deg, #f5eedc 0%, #c49a45 50%, #ac802d 100%);
+  background: linear-gradient(135deg, #F39EBF 0%, #DF016E 100%);
+}
+
+/* Special button styles for Snapchat integration & RSVP values */
+a.border-gold-300:hover, button.border-gold-300:hover {
+  border-color: #E5097F !important;
+  background-color: rgba(223, 1, 110, 0.15) !important;
 }
 
 /* Custom animation classes */

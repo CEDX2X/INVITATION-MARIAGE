@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Envelope from "./components/Envelope";
+import SparklesBackground from "./components/SparklesBackground";
 import Hero from "./components/Hero";
 import Welcome from "./components/Welcome";
 import Countdown from "./components/Countdown";
@@ -33,6 +34,8 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-ivory text-darksoft selection:bg-gold-200 selection:text-gold-800">
+      
+      <SparklesBackground />
       
       {/* 0. Golden interactive initial envelope */}
       <Envelope data={weddingData} onOpen={handleOpenInvitation} />

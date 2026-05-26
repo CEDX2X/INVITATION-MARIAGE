@@ -85,7 +85,7 @@ export default function Program({ data }: ProgramProps) {
               {/* Card Container */}
               <div className="bg-ivory/50 rounded-2xl p-5 sm:p-6 border border-stone-100 hover:border-gold-200 hover:bg-gold-50/10 transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_25px_rgba(140,100,29,0.03)]">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-2">
-                  <span className="font-mono text-xs font-semibold bg-gold-100 text-gold-700 px-3 py-1 rounded-full tracking-wider">
+                  <span className="font-mono text-xs font-semibold bg-gold-600 text-white px-3 py-1 rounded-full tracking-wider">
                     {event.time}
                   </span>
                   <h4 className="font-serif text-lg sm:text-xl font-medium text-stone-800">
