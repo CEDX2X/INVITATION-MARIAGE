@@ -86,6 +86,30 @@ export default function Welcome({ data }: WelcomeProps) {
             <span className="font-serif italic text-gold-500 text-lg">Save the Date</span>
             <div className="w-16 h-[1px] bg-gold-200" />
           </div>
+
+          {/* Elegant Snapchat Filter Button integration */}
+          {data.snapchatFilterUrl && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="pt-2 pb-4 flex flex-col items-center gap-2"
+            >
+              <a
+                href={data.snapchatFilterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-gold-300 text-gold-300 hover:text-white hover:bg-gold-500/10 active:scale-95 font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-sm cursor-pointer"
+              >
+                <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
+                <span>📸 Filtre Snapchat du Mariage</span>
+              </a>
+              <span className="text-[10px] text-gold-300/60 tracking-wider font-sans font-light">
+                Utilisez notre filtre spécial pour immortaliser vos photos de la journée !
+              </span>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>

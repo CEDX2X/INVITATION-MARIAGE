@@ -28,6 +28,7 @@ export interface WeddingData {
   showGiftSection: boolean;
   romanticPhrase: string;
   audioMusicUrl: string;
+  snapchatFilterUrl?: string; // Optionnel : lien du filtre Snapchat pour les invités
   heroImage: string;
   welcomeImage: string;
   galleryImages: { url: string; caption: string }[];
@@ -39,17 +40,18 @@ export const weddingData: WeddingData = {
   groomName: "Charlie",
   weddingDateFormatted: "Samedi 12 Septembre 2026",
   countdownDate: "2026-09-12T15:00:00",
-  whatsappNumber: "+237688806414", // Remplacer par le numéro des mariés
+  whatsappNumber: "+33600000000", // Remplacer par le numéro des mariés
   welcomeText: "Cher(e) invité(e), c'est avec une immense joie et beaucoup d'émotion que nous vous invitons à célébrer avec nous le premier jour du reste de notre vie. Votre présence à nos côtés rendra cette journée inoubliable.",
   venueName: "Domaine de la Roseraie d'Or",
   venueAddress: "Chemin des Collines Dorées, 75016 Paris, France",
   venueGoogleMapsUrl: "https://maps.google.com/?q=Domaine+de+la+Roseraie+d+Or",
   giftNote: "Votre présence à nos côtés est notre plus beau cadeau. Cependant, si vous souhaitez contribuer à notre nouvelle vie à deux ou à notre voyage de noces, une boîte à contributions sera disponible le jour J, ou vous pouvez utiliser nos coordonnées Mobile Money ci-dessous.",
-  mobileMoneyNumber: "+237688806414",
+  mobileMoneyNumber: "+33 6 00 00 00 00",
   mobileMoneyName: "Elena & Charlie",
   showGiftSection: true,
   romanticPhrase: "L'amour n'est pas seulement un regard que l'on se porte, c'est un regard jeté ensemble dans la même direction.",
-  audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Ced%2Fsport%2FSawa%20Romance.m4a?alt=media&token=27c76ded-e9e6-49aa-9514-87a463efeef8", // Musique douce par défaut ou laisser vide
+  audioMusicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", // Musique douce par défaut ou laisser vide
+  snapchatFilterUrl: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=3b3eb321fcef46f592ba26ec91ffbbcc&metadata=01", // Mettez votre lien de filtre Snapchat ici
   heroImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2669&auto=format&fit=crop",
   welcomeImage: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2670&auto=format&fit=crop",
   galleryImages: [

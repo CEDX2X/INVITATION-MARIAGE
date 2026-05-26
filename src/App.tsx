@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Envelope from "./components/Envelope";
 import Hero from "./components/Hero";
 import Welcome from "./components/Welcome";
 import Countdown from "./components/Countdown";
@@ -14,6 +15,18 @@ import { weddingData } from "./data/weddingData";
 export default function App() {
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
 
+  // Lock scroll on mount until open is clicked
+  useEffect(() => {
+    if (!isInvitationOpened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isInvitationOpened]);
+
   const handleOpenInvitation = () => {
     setIsInvitationOpened(true);
   };
@@ -21,6 +34,9 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-ivory text-darksoft selection:bg-gold-200 selection:text-gold-800">
       
+      {/* 0. Golden interactive initial envelope */}
+      <Envelope data={weddingData} onOpen={handleOpenInvitation} />
+
       {/* Immersive Background Music Player */}
       <MusicPlayer 
         audioUrl={weddingData.audioMusicUrl} 
