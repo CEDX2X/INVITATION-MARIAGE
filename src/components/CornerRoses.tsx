@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import realCornerRoses from "../assets/roses/real_corner_roses.png";
+// Remote corner roses image (placed on extremities of the site)
+const cornerRosesUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
 
 interface CornerRosesProps {
   // Allow choosing specific corners (e.g., only bottom-left and top-right like the envelope screen)
@@ -9,7 +10,7 @@ interface CornerRosesProps {
 export default function CornerRoses({ corners = ["top-left", "top-right", "bottom-left", "bottom-right"] }: CornerRosesProps) {
   // Bouquet image rendered with gentle sway animation and responsive scaling
   const renderBouquet = (rotationClass: string) => (
-    <motion.div 
+      <motion.div 
       animate={{ 
         y: [0, -3, 0],
         rotate: [0, 1.2, 0]
@@ -20,9 +21,9 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
         ease: "easeInOut" 
       }}
       className={`absolute w-24 h-24 sm:w-28 sm:h-28 pointer-events-none z-30 filter drop-shadow-[0_6px_15px_rgba(0,0,0,0.55)] ${rotationClass}`}
-    >
+      >
       <img 
-        src={realCornerRoses} 
+        src={cornerRosesUrl} 
         alt="Bouquet de Roses Réaliste" 
         className="w-full h-full object-contain"
       />
