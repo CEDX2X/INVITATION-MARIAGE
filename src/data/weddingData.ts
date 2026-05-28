@@ -52,7 +52,7 @@ export const weddingData: WeddingData = {
   romanticPhrase: "Deux vies, deux cœurs, unis pour un seul et même voyage.",
   audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb", // Musique douce par défaut ou laisser vide
   snapchatFilterUrl: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=3b3eb321fcef46f592ba26ec91ffbbcc&metadata=01", // Mettez votre lien de filtre Snapchat ici
-  heroImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2669&auto=format&fit=crop",
+  heroImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F21d98fa2-e9df-454e-b10f-b907e245a892.jpeg?alt=media&token=cc3b645b-fffb-4f0d-80ad-2eaedee935e6",
   welcomeImage: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2670&auto=format&fit=crop",
   galleryImages: [
     {
