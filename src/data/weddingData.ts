@@ -56,7 +56,7 @@ export const weddingData: WeddingData = {
   welcomeImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2F51b64ccf-9103-4bb8-93ce-1bd8e0dec23f.JPG?alt=media&token=63d40756-4fa6-4ecb-9176-3d6803f37767",
   galleryImages: [
     {
-      url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2670&auto=format&fit=crop",
+      url: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2Fd156e3a9-dc61-4ba2-9d78-5b7adf74529c.jpeg?alt=media&token=4b1041a8-9328-44b1-938e-29b3727997ee",
       caption: "La promesse d'une vie"
     },
     {
