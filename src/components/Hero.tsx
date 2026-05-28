@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import { ChevronDown, Calendar, MapPin } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
 import FallingPetals from "./FallingPetals";
-import CornerRoses from "./CornerRoses";
+
+const heroSideRoseUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
 
 interface HeroProps {
   data: WeddingData;
@@ -23,6 +24,31 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
     <section id="hero" className="hero h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4 relative">
       {/* Falling Rose Petals effect */}
       <FallingPetals />
+
+      {/* Decorative side roses on both sides of the hero area */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+        className="absolute left-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40"
+      >
+        <img
+          src={heroSideRoseUrl}
+          alt="Décor floral gauche"
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+        className="absolute right-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40"
+      >
+        <img
+          src={heroSideRoseUrl}
+          alt="Décor floral droit"
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
