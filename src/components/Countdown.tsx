@@ -96,24 +96,33 @@ export default function Countdown({ data }: CountdownProps) {
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
-            {timeBlocks.map((block, index) => (
-              <motion.div
-                key={block.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_10px_20px_rgba(140,100,29,0.04)] border border-stone-100"
-              >
-                <span className="font-serif font-light text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
-                  {block.value.toString().padStart(2, "0")}
-                </span>
-                <span className="text-[10px] sm:text-xs uppercase tracking-widest text-stone-400 font-sans font-medium mt-2">
-                  {block.label}
-                </span>
-              </motion.div>
-            ))}
+          <div className="relative max-w-md mx-auto w-full">
+            {/* Decorative panel behind the countdown to avoid the 'empty frame' look */}
+            <div className="absolute inset-0 -z-10 rounded-3xl shadow-lg"
+                 style={{ background: 'linear-gradient(135deg, rgba(255,250,240,0.9), rgba(255,255,255,0.7))', border: '1px solid rgba(200,160,80,0.08)' }}
+            />
+
+            <div className="p-3 sm:p-6 rounded-3xl">
+              <div className="grid grid-cols-4 gap-2 sm:gap-4">
+                {timeBlocks.map((block, index) => (
+                  <motion.div
+                    key={block.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    className="bg-white/90 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_10px_20px_rgba(140,100,29,0.04)] border border-stone-100"
+                  >
+                    <span className="font-serif font-light text-2xl sm:text-3xl md:text-4xl text-gold-600 tracking-tight">
+                      {block.value.toString().padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] sm:text-xs uppercase tracking-widest text-stone-400 font-sans font-medium mt-2">
+                      {block.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
