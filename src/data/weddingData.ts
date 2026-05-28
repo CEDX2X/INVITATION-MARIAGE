@@ -51,9 +51,9 @@ export const weddingData: WeddingData = {
   showGiftSection: true,
   romanticPhrase: "Deux vies, deux cœurs, unis pour un seul et même voyage.",
   audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb", // Musique douce par défaut ou laisser vide
-  snapchatFilterUrl: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=3b3eb321fcef46f592ba26ec91ffbbcc&metadata=01", // Mettez votre lien de filtre Snapchat ici
-  heroImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F21d98fa2-e9df-454e-b10f-b907e245a892.jpeg?alt=media&token=cc3b645b-fffb-4f0d-80ad-2eaedee935e6",
-  welcomeImage: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2670&auto=format&fit=crop",
+  snapchatFilterUrl: "https://snapchat.com/t/AyTA1TY1", // Mettez votre lien de filtre Snapchat ici
+  heroImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2FFabiola%20%26%20placide_page-0001.jpg?alt=media&token=0f931931-893a-482c-b00f-aa606f6e4e3b",
+  welcomeImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2Fd156e3a9-dc61-4ba2-9d78-5b7adf74529c.jpeg?alt=media&token=4b1041a8-9328-44b1-938e-29b3727997ee",
   galleryImages: [
     {
       url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2670&auto=format&fit=crop",
