@@ -53,7 +53,7 @@ export const weddingData: WeddingData = {
   audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb", // Musique douce par défaut ou laisser vide
   snapchatFilterUrl: "https://snapchat.com/t/AyTA1TY1", // Mettez votre lien de filtre Snapchat ici
   heroImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2FFabiola%20%26%20placide_page-0001.jpg?alt=media&token=0f931931-893a-482c-b00f-aa606f6e4e3b",
-  welcomeImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2Fd156e3a9-dc61-4ba2-9d78-5b7adf74529c.jpeg?alt=media&token=4b1041a8-9328-44b1-938e-29b3727997ee",
+  welcomeImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2F51b64ccf-9103-4bb8-93ce-1bd8e0dec23f.JPG?alt=media&token=63d40756-4fa6-4ecb-9176-3d6803f37767",
   galleryImages: [
     {
       url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2670&auto=format&fit=crop",
