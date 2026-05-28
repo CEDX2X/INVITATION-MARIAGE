@@ -60,7 +60,7 @@ export const weddingData: WeddingData = {
       caption: "La promesse d'une vie"
     },
     {
-      url: "https://images.unsplash.com/photo-1519225495810-7512c696505a?q=80&w=2670&auto=format&fit=crop",
+      url: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2FFabiola%20%26%20placide_page-0002.jpg?alt=media&token=9d92de4f-6c36-439b-aa75-d94ee40bb984",
       caption: "Le regard complice"
     },
     {
