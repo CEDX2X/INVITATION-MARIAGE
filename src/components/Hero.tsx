@@ -24,9 +24,6 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
       {/* Falling Rose Petals effect */}
       <FallingPetals />
 
-      {/* Frame of real corner red roses */}
-      <CornerRoses />
-
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img

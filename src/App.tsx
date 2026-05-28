@@ -11,6 +11,7 @@ import RSVP from "./components/RSVP";
 import Gift from "./components/Gift";
 import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
+import CornerRoses from "./components/CornerRoses";
 import RoseSeparator from "./components/RoseSeparator";
 import { weddingData } from "./data/weddingData";
 
@@ -49,6 +50,7 @@ export default function App() {
 
       {/* Main Page Layout */}
       <div className="invitation flex flex-col w-full relative">
+        <CornerRoses />
         
         {/* 1. Hero Section */}
         <Hero 
@@ -56,6 +58,8 @@ export default function App() {
           onOpen={handleOpenInvitation} 
           isOpen={isInvitationOpened} 
         />
+
+        <RoseSeparator />
 
         {/* Core content sections wrapped in elegant container */}
         <div className="relative z-25">
