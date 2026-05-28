@@ -182,10 +182,6 @@ Merci pour votre invitation !`;
                         className="w-full bg-stone-50/50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 focus:border-gold-400 transition-colors"
                       >
                         <option value="1">1 Personne</option>
-                        <option value="2">2 Personnes</option>
-                        <option value="3">3 Personnes</option>
-                        <option value="4">4 Personnes</option>
-                        <option value="5">5 Personnes et plus</option>
                       </select>
                     </motion.div>
                   )}
