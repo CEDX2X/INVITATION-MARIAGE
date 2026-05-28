@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 // Remote corner roses image (placed on extremities of the site)
 const cornerRosesUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
 
@@ -11,24 +10,15 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
   // Bouquet image rendered with gentle sway animation and responsive scaling
   // `extraClasses` lets callers increase size/offset so we can render multiple overlapping bouquets
   const renderBouquet = (rotationClass: string, extraClasses = "") => (
-    <motion.div 
-      animate={{ 
-        y: [0, -3, 0],
-        rotate: [0, 1.2, 0]
-      }}
-      transition={{ 
-        repeat: Infinity, 
-        duration: 5 + Math.random() * 2, 
-        ease: "easeInOut" 
-      }}
+    <div
       className={`absolute pointer-events-none z-30 filter drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)] ${extraClasses} ${rotationClass}`}
-      >
+    >
       <img 
         src={cornerRosesUrl} 
         alt="Bouquet de Roses Réaliste" 
         className="w-full h-full object-contain"
       />
-    </motion.div>
+    </div>
   );
 
   return (

@@ -26,29 +26,21 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
       <FallingPetals />
 
       {/* Decorative side roses on both sides of the hero area */}
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-        className="absolute left-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40"
-      >
+      <div className="absolute left-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40">
         <img
           src={heroSideRoseUrl}
           alt="Décor floral gauche"
           className="w-full h-full object-contain"
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-        className="absolute right-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40"
-      >
+      <div className="absolute right-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40">
         <img
           src={heroSideRoseUrl}
           alt="Décor floral droit"
           className="w-full h-full object-contain"
         />
-      </motion.div>
+      </div>
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
