@@ -342,3 +342,67 @@ a.border-gold-300:hover, button.border-gold-300:hover {
   animation: floatGentle 6s infinite ease-in-out;
 }
 
+/* Rain of falling rose petals custom animation */
+@keyframes fallAndSway {
+  0% {
+    transform: translate3d(0, -50px, 0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translate3d(calc(var(--petal-drift) * 0.15), 15vh, 0) rotate(calc(var(--petal-rotation) * 0.15)) scale(1);
+  }
+  50% {
+    transform: translate3d(calc(var(--petal-drift) * 0.5), 50vh, 0) rotate(calc(var(--petal-rotation) * 0.5)) scale(0.95);
+  }
+  85% {
+    opacity: 0.9;
+    transform: translate3d(calc(var(--petal-drift) * 0.85), 85vh, 0) rotate(calc(var(--petal-rotation) * 0.85)) scale(1.05);
+  }
+  100% {
+    transform: translate3d(var(--petal-drift), 105vh, 0) rotate(var(--petal-rotation)) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-petal-fall {
+  animation-name: fallAndSway;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-iteration-count: infinite;
+}
+
+/* Sweet Horizontal Rose custom styling to fit neatly */
+.horizontal-rose-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.horizontal-rose-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243, 158, 191, 0.35) 60%, rgba(229, 29, 46, 0.4) 100%);
+}
+
+.horizontal-rose-line.line-right {
+  background: linear-gradient(270deg, transparent, rgba(243, 158, 191, 0.35) 60%, rgba(229, 29, 46, 0.4) 100%);
+}
+
+.horizontal-rose-container {
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+.horizontal-rose-container:hover {
+  transform: scale(1.08);
+}
+
+

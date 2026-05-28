@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, Heart } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
+import CornerRoses from "./CornerRoses";
 
 interface EnvelopeProps {
   data: WeddingData;
@@ -36,6 +37,9 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
           className="fixed inset-0 z-50 bg-[#000000] flex flex-col items-center justify-center p-4 select-none overflow-hidden"
           style={{ touchAction: "none" }}
         >
+          {/* Framed by real corner red roses */}
+          <CornerRoses />
+
           {/* Gentle background romantic elements & sparkling feedback */}
           <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
             <div className="absolute top-[12%] left-[18%] w-1.5 h-1.5 bg-[#DF016E] rounded-full animate-pulse" />

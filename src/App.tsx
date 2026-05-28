@@ -11,6 +11,7 @@ import RSVP from "./components/RSVP";
 import Gift from "./components/Gift";
 import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
+import RoseSeparator from "./components/RoseSeparator";
 import { weddingData } from "./data/weddingData";
 
 export default function App() {
@@ -62,23 +63,37 @@ export default function App() {
           {/* 2. Welcome/Introduction Section */}
           <Welcome data={weddingData} />
 
+          <RoseSeparator />
+
           {/* 3. Countdown Section */}
           <Countdown data={weddingData} />
+
+          <RoseSeparator />
 
           {/* 4. Timeline Program Section */}
           <Program data={weddingData} />
 
+          <RoseSeparator />
+
           {/* 5. Venue & Maps Location Section */}
           <Location data={weddingData} />
+
+          <RoseSeparator />
 
           {/* 6. Romantic Gallery Section */}
           <Gallery data={weddingData} />
 
+          <RoseSeparator />
+
           {/* 7. Interactive RSVP Confirmation Section */}
           <RSVP data={weddingData} />
 
+          <RoseSeparator />
+
           {/* 8. Contribution Gifts Section */}
           <Gift data={weddingData} />
+
+          <RoseSeparator />
 
           {/* 9. Romantic Quote Summary & Footer Section */}
           <Footer data={weddingData} />

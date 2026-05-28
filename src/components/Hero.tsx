@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ChevronDown, Calendar, MapPin } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
+import FallingPetals from "./FallingPetals";
+import CornerRoses from "./CornerRoses";
 
 interface HeroProps {
   data: WeddingData;
@@ -18,7 +20,13 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="hero h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4">
+    <section id="hero" className="hero h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4 relative">
+      {/* Falling Rose Petals effect */}
+      <FallingPetals />
+
+      {/* Frame of real corner red roses */}
+      <CornerRoses />
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
