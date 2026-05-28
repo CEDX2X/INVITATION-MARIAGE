@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Envelope from "./components/Envelope";
 import SparklesBackground from "./components/SparklesBackground";
 import Hero from "./components/Hero";
 import Welcome from "./components/Welcome";
@@ -16,19 +15,14 @@ import RoseSeparator from "./components/RoseSeparator";
 import { weddingData } from "./data/weddingData";
 
 export default function App() {
-  const [isInvitationOpened, setIsInvitationOpened] = useState(false);
+  const [isInvitationOpened, setIsInvitationOpened] = useState(true);
 
-  // Lock scroll on mount until open is clicked
   useEffect(() => {
-    if (!isInvitationOpened) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isInvitationOpened]);
+  }, []);
 
   const handleOpenInvitation = () => {
     setIsInvitationOpened(true);
@@ -39,9 +33,6 @@ export default function App() {
       
       <SparklesBackground />
       
-      {/* 0. Golden interactive initial envelope */}
-      <Envelope data={weddingData} onOpen={handleOpenInvitation} />
-
       {/* Immersive Background Music Player */}
       <MusicPlayer 
         audioUrl={weddingData.audioMusicUrl} 
