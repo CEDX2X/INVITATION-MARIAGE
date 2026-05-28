@@ -116,6 +116,26 @@ a.border-gold-300:hover, button.border-gold-300:hover {
   background-color: rgba(223, 1, 110, 0.15) !important;
 }
 
+@media (max-width: 640px) {
+  .invitation {
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 0 40px rgba(223, 1, 110, 0.08);
+  }
+
+  .hero {
+    padding: 1.75rem 1rem;
+  }
+
+  .hero::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(15, 2, 8, 0.92));
+  }
+
+  .floral-divider {
+    padding: 1.5rem 0;
+  }
+}
+
 /* Custom animation classes */
 @keyframes pulseGlow {
   0%, 100% {
@@ -151,10 +171,10 @@ a.border-gold-300:hover, button.border-gold-300:hover {
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-col: d-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.25rem;
   overflow: hidden;
   text-align: center;
 }
@@ -171,8 +191,8 @@ a.border-gold-300:hover, button.border-gold-300:hover {
 /* 3. .couple-names : Écriture géante calligraphique élégante et romantique */
 .couple-names {
   font-family: var(--font-accent), cursive !important;
-  font-size: 3.5rem;
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  line-height: 1.05;
   font-weight: normal;
   color: #ffffff;
   text-shadow: 0px 4px 12px rgba(223, 1, 110, 0.45);

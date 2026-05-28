@@ -15,7 +15,7 @@ import RoseSeparator from "./components/RoseSeparator";
 import { weddingData } from "./data/weddingData";
 
 export default function App() {
-  const [isInvitationOpened, setIsInvitationOpened] = useState(true);
+  const [isInvitationOpened, setIsInvitationOpened] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "unset";

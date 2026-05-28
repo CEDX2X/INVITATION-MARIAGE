@@ -21,7 +21,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="hero h-[100dvh] w-full overflow-hidden flex flex-col justify-between items-center text-center px-4 relative">
+    <section id="hero" className="hero min-h-screen w-full overflow-hidden flex flex-col justify-between items-center text-center px-4 sm:px-6 relative">
       {/* Falling Rose Petals effect */}
       <FallingPetals />
 
@@ -82,7 +82,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.6 }}
-          className="couple-names my-5 px-4"
+          className="couple-names my-5 px-4 text-5xl sm:text-6xl"
         >
           {data.brideName} <span className="text-gold-300 font-serif italic text-2xl sm:text-3xl">&</span> {data.groomName}
         </motion.h1>
@@ -114,7 +114,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <button
           id="btn-ouvrir-invitation"
           onClick={handleOpenClick}
-          className="group relative px-8 py-3.5 rounded-full overflow-hidden border border-gold-300 bg-black/40 text-white font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:border-gold-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+          className="group relative w-full max-w-[260px] px-8 py-3.5 rounded-full overflow-hidden border border-gold-300 bg-black/40 text-white font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:border-gold-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
         >
           {/* Gentle glow effect behind or inside button */}
           <span className="absolute inset-0 w-full h-full bg-gold-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
