@@ -40,14 +40,14 @@ export const weddingData: WeddingData = {
   groomName: "Placide",
   weddingDateFormatted: "Samedi 27 Juin 2026",
   countdownDate: "2026-06-27T10:00:00",
-  whatsappNumber: "+23769999997999", // Référence Cameroun
+  whatsappNumber: "+237690199155", // Référence Cameroun
   welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil. Votre présence à nos côtés rendra cette journée inoubliable.",
   venueName: "Au jardin de René Santa Barbara Yaoundé",
   venueAddress: "Santa Barbara, Yaoundé, Cameroun",
   venueGoogleMapsUrl: "https://maps.google.com/?q=Jardin+de+Rene+Santa+Barbara+Yaounde",
   giftNote: "Une liste de cadeaux est disponible aux magasins Orca Douala et Yaoundé au nom du couple MBANG OYONO.",
-  mobileMoneyNumber: "69999999988",
-  mobileMoneyName: "MBANG OYONO",
+  mobileMoneyNumber: "+237690199155",
+  mobileMoneyName: "BIBIANE BOAYE",
   showGiftSection: true,
   romanticPhrase: "C’est avec une immense joie et beaucoup d’émotion que nous avons l’honneur de vous inviter à célébrer l’union de nos vies. Votre présence, votre amour et votre bienveillance sont pour nous le plus précieux des cadeaux. Venez partager ce jour unique, entourés de rires, de chaleur et de souvenirs que nous garderons à jamais. Nous avons hâte de vous retrouver et de vivre ce moment inoubliable ensemble.Avec tout notre amour.",
   audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb", // Musique douce par défaut ou laisser vide

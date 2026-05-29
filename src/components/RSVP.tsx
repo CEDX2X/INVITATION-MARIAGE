@@ -88,7 +88,7 @@ Merci pour votre invitation !`;
             Confirmer votre Présence (RSVP)
           </motion.h3>
           <p className="text-stone-400 text-[11px] sm:text-xs tracking-widest uppercase font-mono mt-3">
-            Merci de bien vouloir répondre avant le 15 août 2026
+            Merci de bien vouloir répondre avant le 25 juin 2026
           </p>
           <div className="w-16 h-[2px] bg-gold-300 mx-auto mt-4" />
         </div>
