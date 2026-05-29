@@ -16,7 +16,7 @@ import Envelope from "./components/Envelope";
 import { weddingData } from "./data/weddingData";
 
 export default function App() {
-  const [isInvitationOpened, setIsInvitationOpened] = useState(false);
+  const [isInvitationOpened, setIsInvitationOpened] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = "unset";
