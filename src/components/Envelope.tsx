@@ -85,6 +85,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
               initial={{ scale: 0.95, y: 5 }}
               animate={isOpening ? { scale: 1, y: 0 } : {}}
               className="absolute inset-2 bg-gradient-to-b from-[#FFFDFD] to-[#FFF5F8] rounded-[22px] flex flex-col justify-between p-7 text-center border-2 border-double border-[#DF016E]/20 overflow-hidden"
+              style={{ backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2F21d98fa2-e9df-454e-b10f-b907e245a892%20(2).JPG?alt=media&token=63753a10-0999-4090-b7e7-fd9dbd64f459')", backgroundSize: "cover", backgroundPosition: "center" }}
             >
               <div className="absolute top-0 inset-x-0 h-28 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#DF016E] to-transparent pointer-events-none" />
               <div className="absolute inset-2 border border-[#DF016E]/10 rounded-[18px] pointer-events-none" />
