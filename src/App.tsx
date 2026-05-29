@@ -30,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-ivory text-darksoft selection:bg-gold-200 selection:text-gold-800">
+    <div className="relative min-h-screen" style={{ backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2F21d98fa2-e9df-454e-b10f-b907e245a892%20(2).JPG?alt=media&token=63753a10-0999-4090-b7e7-fd9dbd64f459')", backgroundSize: "cover", backgroundPosition: "center" }}>
       
       <SparklesBackground />
       
