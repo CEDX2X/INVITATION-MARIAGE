@@ -49,7 +49,7 @@ export const weddingData: WeddingData = {
   mobileMoneyNumber: "69999999999",
   mobileMoneyName: "MBANG OYONO",
   showGiftSection: true,
-  romanticPhrase: "C’est avec une immense joie et beaucoup d’émotion que nous avons l’honneur de vous inviter à célébrer l’union de nos vies. Votre présence, votre amour et votre bienveillance sont pour nous le plus précieux des cadeaux. Venez partager ce jour unique, entourés de rires, de chaleur et de souvenirs que nous garderons à jamais. Nous avons hâte de vous retrouver et de vivre ce moment inoubliable ensemble.Avec tout notre amour. Placide & Fabiola",
+  romanticPhrase: "C’est avec une immense joie et beaucoup d’émotion que nous avons l’honneur de vous inviter à célébrer l’union de nos vies. Votre présence, votre amour et votre bienveillance sont pour nous le plus précieux des cadeaux. Venez partager ce jour unique, entourés de rires, de chaleur et de souvenirs que nous garderons à jamais. Nous avons hâte de vous retrouver et de vivre ce moment inoubliable ensemble.Avec tout notre amour.",
   audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb", // Musique douce par défaut ou laisser vide
   snapchatFilterUrl: "https://snapchat.com/t/AyTA1TY1", // Mettez votre lien de filtre Snapchat ici
   heroImage: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2FFabiola%20%26%20placide_page-0001.jpg?alt=media&token=0f931931-893a-482c-b00f-aa606f6e4e3b",
