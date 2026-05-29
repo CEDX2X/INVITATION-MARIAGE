@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
 import CornerRoses from "./components/CornerRoses";
 import RoseSeparator from "./components/RoseSeparator";
-import Envelope from "./components/Envelope";
+
 import { weddingData } from "./data/weddingData";
 
 export default function App() {
