@@ -92,7 +92,7 @@ export const weddingData: WeddingData = {
       id: "party",
       time: "20h00",
       title: "Soirée Dansante",
-      description: "Une réception magique et animée sous les étoiles pour fêter notre amour.",
+      description: "Une réception magique et animée sous les étoiles pour fêter notre amour (Toujours à Santa Barbara).",
       iconName: "music"
     }
   ]
