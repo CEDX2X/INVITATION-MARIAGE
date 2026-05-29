@@ -44,8 +44,7 @@ export default function App() {
       <div className="invitation flex flex-col w-full relative">
         <CornerRoses />
 
-        {/* Envelope modal at the very top */}
-        {!isInvitationOpened && <Envelope data={weddingData} onOpen={handleOpenInvitation} />}
+
         
         {/* 1. Hero Section */}
         <Hero 
