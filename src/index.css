@@ -152,6 +152,19 @@ a.border-gold-300:hover, button.border-gold-300:hover {
   animation: pulseGlow 4s infinite ease-in-out;
 }
 
+.envelope-flap,
+.envelope-top-flap {
+  clip-path: polygon(0 100%, 13% 0, 87% 0, 100% 100%);
+  transform-origin: 50% 100%;
+}
+
+.envelope-seal-text {
+  font-family: var(--font-accent), cursive;
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
 /* REQUIRED CSS CLASSES SPECIFIED IN CONSTRAINTS */
 
 /* 1. .invitation : Container type invitation digitale mobile, avec dégradés satinés doux */

@@ -61,52 +61,58 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
 
           <div className="z-10 w-full max-w-[560px] flex items-center justify-center">
             <motion.div
-              initial={{ scale: 0.96, opacity: 0, y: 30 }}
+              initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 50, damping: 14, delay: 0.25 }}
-              className="relative w-[420px] h-[300px]"
+              transition={{ type: "spring", stiffness: 55, damping: 16, delay: 0.2 }}
+              className="relative w-[420px] h-[280px]"
             >
-              <div
-                className="absolute inset-0 rounded-[28px] bg-gradient-to-b from-white via-[#f8f3eb] to-[#f0e7dc] border border-stone-200 shadow-[0_24px_80px_rgba(0,0,0,0.25)] overflow-hidden cursor-pointer"
+              <motion.div
+                className="relative w-full h-full cursor-pointer"
+                animate={isOpening ? { y: 12, scale: 0.98, opacity: 0.96 } : { y: 0, scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
                 onClick={!isOpening ? handleOpen : undefined}
               >
-                <div className="absolute inset-x-10 top-12 h-[56%] bg-[#fbf7f2] rounded-[24px] border border-[#e8dfd3] shadow-inner" />
-                <div className="absolute inset-x-12 top-[28%] h-0.5 bg-stone-200/50" />
-                <div className="absolute inset-x-14 top-[38%] h-0.5 bg-stone-200/30" />
-                <div className="absolute inset-x-0 top-0 h-1/2 overflow-hidden">
-                  <motion.div
-                    className="absolute inset-x-0 top-0 h-full bg-white"
-                    style={{
-                      clipPath: 'polygon(0 100%, 13% 0, 87% 0, 100% 100%)',
-                      transformOrigin: '50% 100%',
-                    }}
-                    animate={isOpening ? { rotateX: -115, y: -92, opacity: 0.95 } : { rotateX: 0, y: 0, opacity: 1 }}
-                    transition={{ duration: 0.9, ease: 'easeInOut' }}
+                <div className="absolute inset-0 rounded-[24px] bg-[#f7efe4] border border-stone-200 shadow-[0_24px_70px_rgba(0,0,0,0.24)] overflow-hidden">
+                  <div
+                    className="absolute inset-x-8 top-0 h-[60%] bg-white border-b border-stone-200 shadow-[inset_0_-12px_18px_rgba(0,0,0,0.08)] envelope-top-flap"
                   >
-                    <div className="absolute inset-x-0 bottom-0 h-2 bg-stone-100/50" />
-                    <div className="absolute inset-x-0 bottom-8 h-10 bg-gradient-to-t from-stone-100/30 via-transparent to-transparent" />
-                  </motion.div>
-                </div>
+                    <motion.div
+                      className="absolute inset-x-0 top-0 h-full bg-white envelope-flap"
+                      animate={isOpening ? { rotateX: -125, y: -88, opacity: 0.93 } : { rotateX: 0, y: 0, opacity: 1 }}
+                      transition={{ duration: 0.9, ease: 'easeInOut' }}
+                    >
+                      <div className="absolute inset-x-10 bottom-0 h-2 rounded-full bg-stone-100/80" />
+                      <div className="absolute inset-x-10 bottom-10 h-10 rounded-t-full bg-gradient-to-t from-stone-200/20 to-transparent" />
+                    </motion.div>
+                  </div>
 
-                <div className="absolute left-1/2 top-[22%] -translate-x-1/2 w-24 h-24 rounded-full bg-rose-500 border-2 border-rose-600 shadow-[0_14px_24px_rgba(199,46,91,0.28)] flex items-center justify-center z-20">
-                  <span style={{ fontFamily: 'Great Vibes, serif', fontSize: '32px', color: '#fff', letterSpacing: '0.02em' }}>
-                    {initials}
-                  </span>
-                </div>
+                  <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[#fcfaf5] border-t border-stone-200 shadow-[inset_0_8px_16px_rgba(0,0,0,0.05)]">
+                    <div className="absolute inset-x-10 top-8 bottom-8 bg-white rounded-[20px] border border-[#ece4d8] shadow-inner" />
+                  </div>
 
-                <div className="absolute -bottom-4 left-0 right-0 h-12 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-              </div>
+                  <div className="absolute left-1/2 top-[24%] -translate-x-1/2 w-24 h-24 rounded-full bg-rose-500 border-2 border-rose-600 shadow-[0_12px_22px_rgba(199,46,91,0.28)] flex items-center justify-center z-10">
+                    <span className="envelope-seal-text">{initials}</span>
+                  </div>
+
+                  <div className="absolute inset-x-0 top-[15%] h-px bg-stone-200/30" />
+                  <div className="absolute inset-x-0 top-[21%] h-px bg-stone-200/20" />
+                </div>
+              </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                animate={isOpening ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
-                transition={{ duration: 0.85, delay: 0.2 }}
+                initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                animate={isOpening ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.96 }}
+                transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center p-6 z-0 pointer-events-none"
               >
-                <div className="relative w-full max-w-[400px] rounded-[22px] bg-[#fffcf6] border border-[#e9dfd2] shadow-[0_18px_40px_rgba(0,0,0,0.15)] p-8 text-center">
+                <div className="relative w-full max-w-[400px] rounded-[22px] bg-[#fffdf8] border border-[#e9dfd2] shadow-[0_18px_36px_rgba(0,0,0,0.16)] p-8 text-center">
                   <div className="absolute inset-x-10 top-6 h-12 rounded-t-[18px] bg-gradient-to-b from-white to-transparent" />
-                  <h2 className="font-serif text-2xl text-rose-800 mb-2">{data.brideName} <span className="text-rose-600">&</span> {data.groomName}</h2>
-                  <p className="text-sm text-stone-500">{data.weddingDateFormatted} — {new Date(data.countdownDate).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</p>
+                  <h2 className="font-serif text-2xl sm:text-3xl text-rose-800 mb-2">
+                    {data.brideName} <span className="text-rose-600">&</span> {data.groomName}
+                  </h2>
+                  <p className="text-sm text-stone-500">
+                    {data.weddingDateFormatted} — {new Date(data.countdownDate).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}
+                  </p>
                   <p className="mt-4 text-sm text-stone-400">Cliquez à nouveau n'importe où pour continuer</p>
                 </div>
               </motion.div>
