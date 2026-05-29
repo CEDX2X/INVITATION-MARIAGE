@@ -14,7 +14,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [scale, setScale] = useState(1);
 
-  const initials = `${data.brideName?.charAt(0) ?? "F"}&${data.groomName?.charAt(0) ?? "P"}`;
+  const initials = `${data.brideName?.charAt(0) ?? "F"} & ${data.groomName?.charAt(0) ?? "P"}`;
 
   useEffect(() => {
     // Lock body scrolling when the envelope is shown
