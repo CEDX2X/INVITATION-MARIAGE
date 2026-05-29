@@ -40,7 +40,7 @@ export const weddingData: WeddingData = {
   groomName: "Placide",
   weddingDateFormatted: "Samedi 27 Juin 2026",
   countdownDate: "2026-06-27T10:00:00",
-  whatsappNumber: "+237699999979", // Référence Cameroun
+  whatsappNumber: "+23769999997999", // Référence Cameroun
   welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil. Votre présence à nos côtés rendra cette journée inoubliable.",
   venueName: "Au jardin de René Santa Barbara Yaoundé",
   venueAddress: "Santa Barbara, Yaoundé, Cameroun",
