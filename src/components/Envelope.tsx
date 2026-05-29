@@ -90,24 +90,34 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
 
           <div className="z-10 w-full max-w-[560px] flex items-center justify-center">
             <div className="scene select-none" style={{ transform: `scale(${scale})` }}>
-              <div className={`envelope ${isOpening ? "opened" : ""}`}>
+              <motion.div 
+                className="envelope"
+                style={{ transition: "none" }}
+                animate={{
+                  y: isOpening ? -10 : 0,
+                  rotateX: isOpening ? 4 : 0,
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 {/* Envelope Back */}
                 <div className="envelope-back" />
 
                 {/* Letter (Invitation Card) */}
                 <motion.div
-                  className="letter relative"
-                  style={{ x: "-50%" }}
-                  initial={{ y: 95, scale: 0.95 }}
+                  className="letter"
+                  style={{ x: "-50%", transition: "none", pointerEvents: isOpening ? "auto" : "none" }}
+                  initial={{ y: 120, scale: 0.9, opacity: 0 }}
                   animate={{
-                    y: isOpening ? -110 : 95,
-                    scale: isOpening ? 1.04 : 0.95,
+                    y: isOpening ? -110 : 120,
+                    scale: isOpening ? 1.04 : 0.9,
+                    opacity: isOpening ? 1 : 0,
                     zIndex: isOpening ? 10 : 1,
                   }}
                   transition={{
                     y: { delay: 0.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] },
                     scale: { delay: 0.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] },
-                    zIndex: { delay: 0.8 }
+                    opacity: { delay: isOpening ? 0.8 : 0, duration: isOpening ? 0.6 : 0.3 },
+                    zIndex: { delay: isOpening ? 0.8 : 0 }
                   }}
                 >
                   {/* Letter content */}
@@ -151,7 +161,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
                 {/* Top Flap (triangle folding down) */}
                 <motion.div
                   className="top-flap"
-                  style={{ transformOrigin: "top center" }}
+                  style={{ transformOrigin: "top center", transition: "none" }}
                   animate={{
                     rotateX: isOpening ? 180 : 0,
                     zIndex: isOpening ? 0 : 5
@@ -181,6 +191,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
                 {/* Wax Seal (Monogram) */}
                 <motion.div
                   className="monogram cursor-pointer flex flex-col items-center justify-center select-none"
+                  style={{ transition: "none" }}
                   onClick={!isOpening ? handleOpen : undefined}
                   animate={{
                     scale: isOpening ? 0 : 1,
@@ -194,7 +205,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
                 >
                   <span className="font-accent text-[30px] font-normal leading-none tracking-normal text-white">{initials}</span>
                 </motion.div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
