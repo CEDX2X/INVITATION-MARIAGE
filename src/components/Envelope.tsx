@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, MailOpen } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
 import CornerRoses from "./CornerRoses";
 
@@ -11,36 +11,65 @@ interface EnvelopeProps {
 
 export default function Envelope({ data, onOpen }: EnvelopeProps) {
   const [isOpening, setIsOpening] = useState(false);
-  const [isDone, setIsDone] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [scale, setScale] = useState(1);
 
   const initials = `${data.brideName?.charAt(0) ?? "F"}&${data.groomName?.charAt(0) ?? "P"}`;
 
+  useEffect(() => {
+    // Lock body scrolling when the envelope is shown
+    document.body.style.overflow = "hidden";
+    
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 360) {
+        setScale(0.55);
+      } else if (width < 400) {
+        setScale(0.62);
+      } else if (width < 480) {
+        setScale(0.72);
+      } else if (width < 640) {
+        setScale(0.85);
+      } else {
+        setScale(1.05);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleOpen = () => {
     setIsOpening(true);
+  };
+
+  const handleFinalOpen = () => {
+    setIsFadingOut(true);
+    document.body.style.overflow = "unset";
     setTimeout(() => {
       onOpen();
     }, 800);
-    setTimeout(() => {
-      setIsDone(true);
-      document.body.style.overflow = "unset";
-    }, 1400);
   };
-
-  if (isDone) return null;
 
   return (
     <AnimatePresence>
-      {!isDone && (
+      {!isFadingOut && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: isFadingOut ? 0 : 1, y: isFadingOut ? -30 : 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-start pt-12 p-4 select-none overflow-hidden"
+          className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4 select-none overflow-hidden"
           style={{ touchAction: "none" }}
         >
           <CornerRoses />
 
-          <div className="text-center mb-6 max-w-sm px-4 z-10">
+          <div className="text-center mb-8 max-w-sm px-4 z-10">
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 0.85, y: 0 }}
@@ -60,63 +89,113 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
           </div>
 
           <div className="z-10 w-full max-w-[560px] flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 55, damping: 16, delay: 0.2 }}
-              className="relative w-[420px] h-[280px]"
-            >
-              <motion.div
-                className="relative w-full h-full cursor-pointer"
-                animate={isOpening ? { y: 12, scale: 0.98, opacity: 0.96 } : { y: 0, scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                onClick={!isOpening ? handleOpen : undefined}
-              >
-                <div className="absolute inset-0 rounded-[24px] bg-[#f7efe4] border border-stone-200 shadow-[0_24px_70px_rgba(0,0,0,0.24)] overflow-hidden">
-                  <div
-                    className="absolute inset-x-8 top-0 h-[60%] bg-white border-b border-stone-200 shadow-[inset_0_-12px_18px_rgba(0,0,0,0.08)] envelope-top-flap"
-                  >
-                    <motion.div
-                      className="absolute inset-x-0 top-0 h-full bg-white envelope-flap"
-                      animate={isOpening ? { rotateX: -125, y: -88, opacity: 0.93 } : { rotateX: 0, y: 0, opacity: 1 }}
-                      transition={{ duration: 0.9, ease: 'easeInOut' }}
+            <div className="scene select-none" style={{ transform: `scale(${scale})` }}>
+              <div className={`envelope ${isOpening ? "opened" : ""}`}>
+                {/* Envelope Back */}
+                <div className="envelope-back" />
+
+                {/* Letter (Invitation Card) */}
+                <motion.div
+                  className="letter relative"
+                  style={{ x: "-50%" }}
+                  initial={{ y: 95, scale: 0.95 }}
+                  animate={{
+                    y: isOpening ? -110 : 95,
+                    scale: isOpening ? 1.04 : 0.95,
+                    zIndex: isOpening ? 10 : 1,
+                  }}
+                  transition={{
+                    y: { delay: 0.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+                    scale: { delay: 0.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+                    zIndex: { delay: 0.8 }
+                  }}
+                >
+                  {/* Letter content */}
+                  <div className="letter-content flex flex-col items-center justify-between p-6 h-full text-center border-2 border-[#e7c67a]/40 rounded-lg m-1 shadow-inner relative overflow-hidden bg-gradient-to-b from-[#fffdf8] to-[#fbf7ee]">
+                    {/* Subtle romantic watermark */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d')] bg-center bg-no-repeat bg-contain pointer-events-none" />
+
+                    {/* Elegant top ornament */}
+                    <div className="text-[#e7c67a] font-light text-xs tracking-[0.2em] mb-1">
+                      ⚜ &nbsp; F & P &nbsp; ⚜
+                    </div>
+
+                    <div className="my-auto flex flex-col justify-center items-center">
+                      <h3 className="font-serif text-2xl font-semibold tracking-wide text-rose-950 mb-1 leading-tight">
+                        {data.brideName} <span className="text-rose-600 font-accent text-3xl font-normal">&</span> {data.groomName}
+                      </h3>
+                      <p className="text-[10px] tracking-[0.2em] text-[#9a7a60] uppercase mb-3 font-sans">
+                        Invitation de Mariage
+                      </p>
+                      <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#e7c67a] to-transparent mb-3" />
+                      <p className="text-[11px] font-sans text-stone-500 font-medium leading-relaxed tracking-wider px-2 max-w-[320px]">
+                        {data.weddingDateFormatted}
+                        <br />
+                        <span className="text-[10px] text-stone-400 font-normal">Yaoundé, Cameroun</span>
+                      </p>
+                    </div>
+
+                    {/* Final CTA */}
+                    <motion.button
+                      onClick={handleFinalOpen}
+                      className="mt-3 px-5 py-2 bg-gradient-to-r from-[#900C3F] to-[#DF016E] hover:from-[#c70039] hover:to-[#ff1493] text-white rounded-full text-[10px] font-sans tracking-[0.22em] uppercase border border-[#e7c67a]/50 shadow-[0_6px_20px_rgba(223,1,110,0.3)] flex items-center gap-2 cursor-pointer z-10"
+                      whileHover={{ scale: 1.05, borderColor: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="absolute inset-x-10 bottom-0 h-2 rounded-full bg-stone-100/80" />
-                      <div className="absolute inset-x-10 bottom-10 h-10 rounded-t-full bg-gradient-to-t from-stone-200/20 to-transparent" />
-                    </motion.div>
+                      <MailOpen className="w-3.5 h-3.5" />
+                      Ouvrir l'invitation
+                    </motion.button>
                   </div>
+                </motion.div>
 
-                  <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[#fcfaf5] border-t border-stone-200 shadow-[inset_0_8px_16px_rgba(0,0,0,0.05)]">
-                    <div className="absolute inset-x-10 top-8 bottom-8 bg-white rounded-[20px] border border-[#ece4d8] shadow-inner" />
-                  </div>
+                {/* Top Flap (triangle folding down) */}
+                <motion.div
+                  className="top-flap"
+                  style={{ transformOrigin: "top center" }}
+                  animate={{
+                    rotateX: isOpening ? 180 : 0,
+                    zIndex: isOpening ? 0 : 5
+                  }}
+                  transition={{
+                    rotateX: { duration: 0.9, ease: "easeInOut" },
+                    zIndex: { delay: isOpening ? 0.45 : 0.45 }
+                  }}
+                >
+                  <div className="flap-pattern" />
+                </motion.div>
 
-                  <div className="absolute left-1/2 top-[24%] -translate-x-1/2 w-24 h-24 rounded-full bg-rose-500 border-2 border-rose-600 shadow-[0_12px_22px_rgba(199,46,91,0.28)] flex items-center justify-center z-10">
-                    <span className="envelope-seal-text">{initials}</span>
-                  </div>
-
-                  <div className="absolute inset-x-0 top-[15%] h-px bg-stone-200/30" />
-                  <div className="absolute inset-x-0 top-[21%] h-px bg-stone-200/20" />
+                {/* Front Pocket */}
+                <div className="front-pocket">
+                  <div className="front-pattern" />
                 </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                animate={isOpening ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.96 }}
-                transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
-                className="absolute inset-0 flex items-center justify-center p-6 z-0 pointer-events-none"
-              >
-                <div className="relative w-full max-w-[400px] rounded-[22px] bg-[#fffdf8] border border-[#e9dfd2] shadow-[0_18px_36px_rgba(0,0,0,0.16)] p-8 text-center">
-                  <div className="absolute inset-x-10 top-6 h-12 rounded-t-[18px] bg-gradient-to-b from-white to-transparent" />
-                  <h2 className="font-serif text-2xl sm:text-3xl text-rose-800 mb-2">
-                    {data.brideName} <span className="text-rose-600">&</span> {data.groomName}
-                  </h2>
-                  <p className="text-sm text-stone-500">
-                    {data.weddingDateFormatted} — {new Date(data.countdownDate).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}
-                  </p>
-                  <p className="mt-4 text-sm text-stone-400">Cliquez à nouveau n'importe où pour continuer</p>
-                </div>
-              </motion.div>
-            </motion.div>
+                {/* Interactive pulsing glow around the seal */}
+                {!isOpening && (
+                  <motion.div
+                    className="absolute left-1/2 bottom-[24px] -translate-x-1/2 w-28 h-28 rounded-full bg-rose-400/20 blur-md pointer-events-none z-5"
+                    animate={{ scale: [0.85, 1.15, 0.85], opacity: [0.3, 0.7, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                )}
+
+                {/* Wax Seal (Monogram) */}
+                <motion.div
+                  className="monogram cursor-pointer flex flex-col items-center justify-center select-none"
+                  onClick={!isOpening ? handleOpen : undefined}
+                  animate={{
+                    scale: isOpening ? 0 : 1,
+                    opacity: isOpening ? 0 : 1,
+                    rotate: isOpening ? -15 : -2,
+                    y: isOpening ? 50 : 0
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  whileHover={{ scale: 1.08, rotate: 1 }}
+                  whileTap={{ scale: 0.92 }}
+                >
+                  <span className="font-accent text-[30px] font-normal leading-none tracking-normal text-white">{initials}</span>
+                </motion.div>
+              </div>
+            </div>
           </div>
 
           <motion.div
@@ -126,7 +205,9 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
             className="mt-8 flex items-center gap-2 text-stone-300 z-10"
           >
             <Sparkles className="w-3.5 h-3.5 text-rose-400" />
-            <span className="text-[10px] font-sans tracking-[0.22em] uppercase">Un instant magique vous attend</span>
+            <span className="text-[10px] font-sans tracking-[0.22em] uppercase">
+              {!isOpening ? "Cliquez sur le sceau pour ouvrir" : "Un instant magique vous attend"}
+            </span>
           </motion.div>
         </motion.div>
       )}
