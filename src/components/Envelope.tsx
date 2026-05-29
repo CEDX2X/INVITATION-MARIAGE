@@ -78,7 +78,7 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 55, damping: 15, delay: 0.3 }}
             onClick={!isOpening ? handleOpen : undefined}
-            className="relative w-full max-w-[340px] h-[460px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_30px_70px_rgba(223,1,110,0.18)] border border-[#DF016E]/15 group transition-all duration-500 hover:border-[#DF016E]/40"
+            className="relative w-full max-w-[340px] h-[460px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_30px_70px_rgba(223,1,110,0.18)] border border-[#DF016E]/15 group transition-all duration-500 hover:border-[#DF016E]/40" style={{ backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FFIN%2F21d98fa2-e9df-454e-b10f-b907e245a892%20(2).JPG?alt=media&token=63753a10-0999-4090-b7e7-fd9dbd64f459')", backgroundSize: "cover", backgroundPosition: "center" }}
           >
             {/* L'invitation physique élégante cachée en-dessous */}
             <motion.div
