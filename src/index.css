@@ -196,7 +196,7 @@ a.border-gold-300:hover, button.border-gold-300:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(15, 2, 8, 0.85));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.22), rgba(15, 2, 8, 0.65));
   z-index: 10;
   pointer-events: none;
 }

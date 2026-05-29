@@ -47,11 +47,11 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <img
           src={data.heroImage}
           alt={`${data.brideName} & ${data.groomName}`}
-          className="w-full h-full object-cover object-center transform scale-105 filter brightness-95"
+          className="w-full h-full object-cover object-center transform scale-105 filter brightness-100"
           referrerPolicy="no-referrer"
         />
         {/* Soft Dark Romantic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60 z-10" />
       </div>
 
       {/* Top Banner */}
