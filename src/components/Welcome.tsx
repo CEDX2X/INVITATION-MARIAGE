@@ -86,56 +86,6 @@ export default function Welcome({ data }: WelcomeProps) {
             <span className="font-serif italic text-white text-base tracking-widest font-light ml-1">Save the Date</span>
           </div>
 
-          {/* Elegant Dress Code section matching the card image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="my-8 p-6 rounded-2xl bg-black/40 border border-[#F39EBF]/10 max-w-md w-full"
-          >
-            <h4 className="font-serif text-lg text-white font-medium mb-3 tracking-wide">
-              Dress Code : Chic & Glamour
-            </h4>
-            <p className="text-stone-400 text-xs font-sans tracking-wide mb-5">
-              Faites briller notre journée en arborant les nuances de notre thème :
-            </p>
-            <div className="flex items-center justify-center gap-6 sm:gap-8">
-              {/* Bordeaux */}
-              <div className="flex flex-col items-center gap-2">
-                <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#330314" }}
-                />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Bordeaux</span>
-              </div>
-              {/* Red */}
-              <div className="flex flex-col items-center gap-2">
-                <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#E51D2E" }}
-                />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Rouge</span>
-              </div>
-              {/* Fuchsia */}
-              <div className="flex flex-col items-center gap-2">
-                <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#DF016E" }}
-                />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Fuchsia</span>
-              </div>
-              {/* Rose poudré */}
-              <div className="flex flex-col items-center gap-2">
-                <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#F39EBF" }}
-                />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Rose poudré</span>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Elegant Snapchat Filter Button integration */}
           {data.snapchatFilterUrl && (
             <motion.div

@@ -42,7 +42,7 @@ export const weddingData: WeddingData = {
   countdownDate: "2026-06-27T10:00:00",
   whatsappNumber: "+237699999979", // Référence Cameroun
   welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil. Votre présence à nos côtés rendra cette journée inoubliable.",
-  venueName: "Au jardin de René",
+  venueName: "Au jardin de René Santa Barbara Yaoundé",
   venueAddress: "Santa Barbara, Yaoundé, Cameroun",
   venueGoogleMapsUrl: "https://maps.google.com/?q=Jardin+de+Rene+Santa+Barbara+Yaounde",
   giftNote: "Une liste de cadeaux est disponible aux magasins Orca Douala et Yaoundé au nom du couple MBANG OYONO.",
@@ -85,7 +85,7 @@ export const weddingData: WeddingData = {
       id: "civil",
       time: "10h00",
       title: "Célébration Civile",
-      description: "Notre union civile célébrée au magnifique jardin de René.",
+      description: "Notre union civile célébrée au magnifique jardin de René Santa Barbara Yaoundé.",
       iconName: "rings"
     },
     {
