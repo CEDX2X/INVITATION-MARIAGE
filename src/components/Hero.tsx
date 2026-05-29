@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ChevronDown, Calendar, MapPin } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
 import FallingPetals from "./FallingPetals";
+import { generateSrcSet, optimizeFirebaseImageUrl } from "../utils/imageOptimization";
 
 const heroSideRoseUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
 
@@ -12,6 +13,10 @@ interface HeroProps {
 }
 
 export default function Hero({ data, onOpen, isOpen }: HeroProps) {
+  const heroImageSrc = optimizeFirebaseImageUrl(data.heroImage, { width: 900, quality: 70, format: 'webp' });
+  const heroImageSrcSet = generateSrcSet(data.heroImage, [480, 768, 1080, 1440]);
+  const heroSideRoseSrc = optimizeFirebaseImageUrl(heroSideRoseUrl, { width: 240, quality: 80, format: 'webp' });
+
   const handleOpenClick = () => {
     onOpen();
     const element = document.getElementById("bienvenue");
@@ -28,7 +33,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
       {/* Decorative side roses on both sides of the hero area */}
       <div className="absolute left-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40">
         <img
-          src={heroSideRoseUrl}
+          src={heroSideRoseSrc}
           alt="Décor floral gauche"
           loading="lazy"
           className="w-full h-full object-contain"
@@ -37,7 +42,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
 
       <div className="absolute right-0 top-1/2 hidden md:block z-20 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40">
         <img
-          src={heroSideRoseUrl}
+          src={heroSideRoseSrc}
           alt="Décor floral droit"
           loading="lazy"
           className="w-full h-full object-contain"
@@ -47,7 +52,9 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={data.heroImage}
+          src={heroImageSrc}
+          srcSet={heroImageSrcSet}
+          sizes="100vw"
           alt={`${data.brideName} & ${data.groomName}`}
           loading="eager"
           className="w-full h-full object-cover object-center transform scale-105 filter brightness-105"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Image, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
+import { generateSrcSet, optimizeFirebaseImageUrl } from "../utils/imageOptimization";
 
 interface GalleryProps {
   data: WeddingData;
@@ -89,7 +90,9 @@ export default function Gallery({ data }: GalleryProps) {
                 className={`${sizeClass} relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500`}
               >
                 <img
-                  src={image.url}
+                  src={optimizeFirebaseImageUrl(image.url, { width: 800, quality: 70, format: 'webp' })}
+                  srcSet={generateSrcSet(image.url, [400, 800, 1200])}
+                  sizes="(max-width: 640px) 100vw, 50vw"
                   alt={image.caption}
                   loading="lazy"
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
@@ -187,18 +190,11 @@ export default function Gallery({ data }: GalleryProps) {
               className="h-[260px] relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500"
             >
               <img
-                src={image.url}
-                alt={image.caption}
-                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
-                <div>
-                  <span className="text-[10px] uppercase tracking-widest text-rose-300 font-sans font-medium">
-                    Dress code
-                  </span>
-                  <p className="font-serif text-white text-lg mt-0.5 font-light">
+                  src={optimizeFirebaseImageUrl(image.url, { width: 640, quality: 70, format: 'webp' })}
+                  srcSet={generateSrcSet(image.url, [320, 640, 960])}
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  alt={image.caption}
+                  loading="lazy"
                     {image.caption}
                   </p>
                 </div>
@@ -244,7 +240,7 @@ export default function Gallery({ data }: GalleryProps) {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  src={data.galleryImages[activePhotoIndex].url}
+                  src={optimizeFirebaseImageUrl(data.galleryImages[activePhotoIndex].url, { width: 1200, quality: 75, format: 'webp' })}
                   alt={data.galleryImages[activePhotoIndex].caption}
                   className="max-w-full max-h-[70vh] object-contain rounded-xl shadow-2xl border border-white/10"
                   referrerPolicy="no-referrer"
