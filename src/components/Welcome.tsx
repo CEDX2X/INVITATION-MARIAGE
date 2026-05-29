@@ -83,7 +83,7 @@ export default function Welcome({ data }: WelcomeProps) {
           
           <div className="floral-divider py-6">
             <span className="floral-divider-icon">🌹</span>
-            <span className="font-serif italic text-white text-base tracking-widest font-light ml-1">Save the Date</span>
+            <span className="font-serif italic text-white text-base tracking-widest font-light ml-1">Pour l'occasion</span>
           </div>
 
           {/* Elegant Snapchat Filter Button integration */}
