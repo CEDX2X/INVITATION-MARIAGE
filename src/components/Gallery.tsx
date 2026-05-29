@@ -121,7 +121,6 @@ export default function Gallery({ data }: GalleryProps) {
             Dress code
           </span>
           <h4 className="font-serif text-3xl sm:text-4xl text-darksoft mt-3 font-light">
-            Inspiration pour la soirée
           </h4>
           <div className="w-16 h-[2px] bg-rose-300 mx-auto mt-4" />
         </div>
