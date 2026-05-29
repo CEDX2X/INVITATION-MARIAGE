@@ -87,7 +87,9 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         >
           Invitation
         </motion.p>
-        
+        <div className="mt-3 text-sm text-white/70 uppercase tracking-[0.3em] font-sans font-semibold">
+          Billet single
+        </div>
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
