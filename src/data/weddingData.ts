@@ -46,7 +46,7 @@ export const weddingData: WeddingData = {
   venueAddress: "Santa Barbara, Yaoundé, Cameroun",
   venueGoogleMapsUrl: "https://maps.google.com/?q=Jardin+de+Rene+Santa+Barbara+Yaounde",
   giftNote: "Une liste de cadeaux est disponible aux magasins Orca Douala et Yaoundé au nom du couple MBANG OYONO.",
-  mobileMoneyNumber: "69999999999",
+  mobileMoneyNumber: "69999999988",
   mobileMoneyName: "MBANG OYONO",
   showGiftSection: true,
   romanticPhrase: "C’est avec une immense joie et beaucoup d’émotion que nous avons l’honneur de vous inviter à célébrer l’union de nos vies. Votre présence, votre amour et votre bienveillance sont pour nous le plus précieux des cadeaux. Venez partager ce jour unique, entourés de rires, de chaleur et de souvenirs que nous garderons à jamais. Nous avons hâte de vous retrouver et de vivre ce moment inoubliable ensemble.Avec tout notre amour.",
