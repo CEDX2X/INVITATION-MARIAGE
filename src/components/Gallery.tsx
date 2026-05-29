@@ -73,14 +73,10 @@ export default function Gallery({ data }: GalleryProps) {
           <div className="w-16 h-[2px] bg-gold-300 mx-auto mt-4" />
         </div>
 
-        {/* Gallery Grid (Bento/Collage style grid for premium visuals) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {data.galleryImages.map((image, index) => {
-            // Distribute sizing for layout variation
-            const sizeClass = 
-              index === 0 ? "md:col-span-2 md:row-span-2 h-[350px] md:h-[482px]" : 
-              index === 3 ? "md:col-span-2 h-[230px] md:h-[230px]" : 
-              "h-[230px]";
+        {/* Main gallery preview (first two photos) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {data.galleryImages.slice(0, 2).map((image, index) => {
+            const sizeClass = index === 0 ? "md:col-span-2 h-[420px] md:h-[520px]" : "h-[320px] sm:h-[420px]";
 
             return (
               <motion.div
@@ -92,14 +88,13 @@ export default function Gallery({ data }: GalleryProps) {
                 onClick={() => openLightbox(index)}
                 className={`${sizeClass} relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500`}
               >
-                <img 
-                  src={image.url} 
-                  alt={image.caption} 
+                <img
+                  src={image.url}
+                  alt={image.caption}
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                
-                {/* Overlay Text Backdrop */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-gold-300 font-sans font-medium">
@@ -110,12 +105,54 @@ export default function Gallery({ data }: GalleryProps) {
                     </p>
                   </div>
                 </div>
-                
-                {/* Soft glow frame on hover */}
                 <div className="absolute inset-0 border border-gold-300/0 group-hover:border-gold-300/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Dress code section inserted after the first two gallery images */}
+        <div className="mt-14 text-center">
+          <span className="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-rose-500">
+            Dress code
+          </span>
+          <h4 className="font-serif text-3xl sm:text-4xl text-darksoft mt-3 font-light">
+            Inspiration pour la soirée
+          </h4>
+          <div className="w-16 h-[2px] bg-rose-300 mx-auto mt-4" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          {data.galleryImages.slice(2).map((image, index) => (
+            <motion.div
+              key={image.url}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1, delay: index * 0.08 }}
+              onClick={() => openLightbox(index + 2)}
+              className="h-[260px] relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500"
+            >
+              <img
+                src={image.url}
+                alt={image.caption}
+                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest text-rose-300 font-sans font-medium">
+                    Dress code
+                  </span>
+                  <p className="font-serif text-white text-lg mt-0.5 font-light">
+                    {image.caption}
+                  </p>
+                </div>
+              </div>
+              <div className="absolute inset-0 border border-gold-300/0 group-hover:border-gold-300/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
+            </motion.div>
+          ))}
         </div>
 
         {/* Immersive Lightbox Modal */}
