@@ -4,8 +4,6 @@ import { Sparkles } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
 import CornerRoses from "./CornerRoses";
 
-const envelopeImageUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2Ft%C3%A9l%C3%A9chargement%20(8).jfif?alt=media&token=e667113e-342a-431c-b9dd-61e2e6fc2b20";
-
 interface EnvelopeProps {
   data: WeddingData;
   onOpen: () => void;
@@ -21,11 +19,11 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
     setIsOpening(true);
     setTimeout(() => {
       onOpen();
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       setIsDone(true);
       document.body.style.overflow = "unset";
-    }, 1800);
+    }, 1400);
   };
 
   if (isDone) return null;
@@ -35,75 +33,73 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
       {!isDone && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 0.9, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 bg-[#000000] flex flex-col items-center justify-center p-4 select-none overflow-hidden"
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-start pt-12 p-4 select-none overflow-hidden"
           style={{ touchAction: "none" }}
         >
           <CornerRoses />
 
-          <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
-            <div className="absolute top-[12%] left-[18%] w-1.5 h-1.5 bg-[#DF016E] rounded-full animate-pulse" />
-            <div className="absolute top-[30%] right-[15%] w-2 h-2 bg-[#F39EBF] rounded-full animate-ping" style={{ animationDuration: '4.5s' }} />
-            <div className="absolute bottom-[25%] left-[22%] w-2.5 h-2.5 bg-[#E51D2E] rounded-full animate-pulse" style={{ animationDuration: '3.2s' }} />
-            <div className="absolute bottom-[18%] right-[20%] w-1.5 h-1.5 bg-[#FFF0F5] rounded-full animate-ping" style={{ animationDuration: '6s' }} />
-            <div className="absolute top-[50%] left-[8%] w-1 h-1 bg-[#C70039] rounded-full animate-pulse" style={{ animationDuration: '2.5s' }} />
-          </div>
-
           <div className="text-center mb-6 max-w-sm px-4 z-10">
             <motion.p
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 0.8, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-[10px] tracking-[0.35em] text-[#F39EBF] uppercase font-sans font-semibold mb-2"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 0.85, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-[10px] tracking-[0.35em] text-rose-400 uppercase font-sans font-semibold mb-2"
             >
               Vous avez reçu une invitation d'exception
             </motion.p>
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.15 }}
               className="font-serif text-2xl text-white font-light tracking-wide uppercase"
             >
               {data.brideName} & {data.groomName}
             </motion.h2>
           </div>
 
-          <div className="scene z-10">
+          <div className="z-10 w-full max-w-[560px] flex items-center justify-center">
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 40 }}
+              initial={{ scale: 0.96, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 55, damping: 15, delay: 0.3 }}
-              className="relative w-full max-w-[560px] h-[380px]"
+              transition={{ type: "spring", stiffness: 50, damping: 14, delay: 0.25 }}
+              className="relative w-[420px] h-[300px]"
             >
+              {/* Envelope body */}
               <motion.div
-                animate={isOpening ? { y: -180, rotateX: -22, opacity: 0.95 } : { y: 0, rotateX: 0, opacity: 1 }}
-                transition={{ duration: 1.1, ease: "easeInOut" }}
-                className="absolute inset-0 origin-bottom"
+                className={`absolute inset-0 rounded-[18px] bg-white shadow-[0_18px_40px_rgba(0,0,0,0.28)] border border-stone-100 overflow-hidden cursor-pointer`}
+                animate={isOpening ? { scale: 0.98, y: -40, opacity: 0.98 } : { scale: 1, y: 0, opacity: 1 }}
+                transition={{ duration: 0.9, ease: "easeInOut" }}
                 onClick={!isOpening ? handleOpen : undefined}
               >
-                <img
-                  src={envelopeImageUrl}
-                  alt="Enveloppe fermée"
-                  className="envelope-image w-full h-full object-cover rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.4)]"
-                />
+                {/* Flap */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-white">
+                  <svg viewBox="0 0 100 50" className="w-full h-full">
+                    <polygon points="0,50 50,0 100,50" fill="#ffffff" />
+                  </svg>
+                </div>
+
+                {/* Paper inside peek */}
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[86%] h-[70%] bg-[#fbf7f2] rounded-lg shadow-inner border border-[#eee6d9]" />
+
+                {/* Seal */}
+                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-rose-500 border-2 border-rose-600 shadow-[0_8px_18px_rgba(199,46,91,0.28)] flex items-center justify-center z-20">
+                  <span style={{ fontFamily: 'Great Vibes, serif', fontSize: '28px', color: '#fff' }}>{initials}</span>
+                </div>
               </motion.div>
 
+              {/* Invitation card revealed when opened */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.92, y: 40 }}
-                animate={isOpening ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.92, y: 40 }}
-                transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-                className="absolute inset-0 flex items-center justify-center p-6"
+                initial={{ opacity: 0, y: 40 }}
+                animate={isOpening ? { opacity: 1, y: 0 } : { opacity: 0 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="absolute inset-0 flex items-center justify-center p-6 z-0 pointer-events-none"
               >
-                <div className="relative w-full max-w-[420px] rounded-[28px] bg-[#f7efe0]/95 border border-[#c9b590]/25 shadow-[0_24px_50px_rgba(0,0,0,0.18)] overflow-hidden">
-                  <div className="absolute top-6 left-1/2 -translate-x-1/2 w-28 h-28 rounded-full bg-[#7a1f2d] border-4 border-[#f1d591] shadow-[0_12px_24px_rgba(0,0,0,0.3)] flex items-center justify-center text-white text-2xl font-bold tracking-[0.35em]">
-                    {initials}
-                  </div>
-                  <div className="pt-24 pb-10 px-8 text-center">
-                    <h2 className="font-serif text-3xl text-[#4e1c26] leading-tight">{data.brideName} <span className="text-[#900c3f]">&</span> {data.groomName}</h2>
-                    <p className="mt-5 text-base text-[#7b5f4a]">{data.weddingDateFormatted}</p>
-                    <span className="mt-3 block text-xs uppercase tracking-[0.35em] text-[#a48163]">{data.venueName}</span>
-                  </div>
+                <div className="relative w-full max-w-[420px] rounded-[18px] bg-[#fffef7] border border-[#efe2c8] shadow-[0_20px_40px_rgba(0,0,0,0.18)] p-8 text-center">
+                  <h2 className="font-serif text-2xl text-rose-800 mb-2">{data.brideName} <span className="text-rose-600">&</span> {data.groomName}</h2>
+                  <p className="text-sm text-stone-500">{data.weddingDateFormatted} — {new Date(data.countdownDate).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</p>
+                  <p className="mt-4 text-sm text-stone-400">Cliquez à nouveau n'importe où pour continuer</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -111,11 +107,11 @@ export default function Envelope({ data, onOpen }: EnvelopeProps) {
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
-            transition={{ delay: 1 }}
-            className="mt-8 flex items-center gap-2 text-stone-400 z-10"
+            animate={{ opacity: 0.85 }}
+            transition={{ delay: 0.9 }}
+            className="mt-8 flex items-center gap-2 text-stone-300 z-10"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#DF016E]" />
+            <Sparkles className="w-3.5 h-3.5 text-rose-400" />
             <span className="text-[10px] font-sans tracking-[0.22em] uppercase">Un instant magique vous attend</span>
           </motion.div>
         </motion.div>
