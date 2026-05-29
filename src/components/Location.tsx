@@ -115,6 +115,14 @@ export default function Location({ data }: LocationProps) {
             </div>
           </motion.div>
         </div>
+
+        <div className="mt-8 text-center lg:text-left">
+          <div className="mx-auto lg:mx-0 max-w-3xl rounded-3xl border border-stone-200 bg-gold-50/70 p-5 shadow-sm">
+            <p className="text-sm sm:text-base text-stone-700 font-sans leading-relaxed">
+              Une liste de cadeaux est disponible aux magasins <span className="font-semibold text-darksoft">Orca Douala</span> et <span className="font-semibold text-darksoft">Yaoundé</span> au nom du couple <span className="font-semibold text-darksoft">MBANG OYONO</span>.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
