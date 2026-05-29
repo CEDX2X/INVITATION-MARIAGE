@@ -11,6 +11,7 @@ export default function RoseSeparator() {
         <img
           src={horizontalRoseUrl}
           alt="Rose décorative centrale"
+          loading="lazy"
           className="w-40 h-auto sm:w-56 sm:max-h-[120px] object-contain filter drop-shadow-[0_6px_18px_rgba(229,29,46,0.45)]"
         />
       </div>

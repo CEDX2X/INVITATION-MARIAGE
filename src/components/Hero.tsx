@@ -30,6 +30,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <img
           src={heroSideRoseUrl}
           alt="Décor floral gauche"
+          loading="lazy"
           className="w-full h-full object-contain"
         />
       </div>
@@ -38,6 +39,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <img
           src={heroSideRoseUrl}
           alt="Décor floral droit"
+          loading="lazy"
           className="w-full h-full object-contain"
         />
       </div>
@@ -47,6 +49,7 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <img
           src={data.heroImage}
           alt={`${data.brideName} & ${data.groomName}`}
+          loading="eager"
           className="w-full h-full object-cover object-center transform scale-105 filter brightness-105"
           referrerPolicy="no-referrer"
         />

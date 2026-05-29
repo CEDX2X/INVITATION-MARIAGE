@@ -91,6 +91,7 @@ export default function Gallery({ data }: GalleryProps) {
                 <img
                   src={image.url}
                   alt={image.caption}
+                  loading="lazy"
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
