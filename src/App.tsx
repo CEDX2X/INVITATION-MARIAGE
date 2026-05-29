@@ -7,7 +7,6 @@ import Program from "./components/Program";
 import Location from "./components/Location";
 import Gallery from "./components/Gallery";
 import RSVP from "./components/RSVP";
-import Gift from "./components/Gift";
 import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
 import CornerRoses from "./components/CornerRoses";
@@ -85,12 +84,7 @@ export default function App() {
 
           <RoseSeparator />
 
-          {/* 8. Contribution Gifts Section */}
-          <Gift data={weddingData} />
-
-          <RoseSeparator />
-
-          {/* 9. Romantic Quote Summary & Footer Section */}
+          {/* 8. Romantic Quote Summary & Footer Section */}
           <Footer data={weddingData} />
           
         </div>
