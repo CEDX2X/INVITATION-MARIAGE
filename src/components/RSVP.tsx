@@ -61,6 +61,10 @@ export default function RSVP({ data }: RSVPProps) {
             
             <div className="w-16 h-[1px] bg-gold-300/50 mx-auto" />
             
+            <p className="font-serif text-lg sm:text-xl text-darksoft font-light leading-relaxed">
+              Nous acceptons les enveloppes de sous en cadeau
+            </p>
+            
             <p className="text-stone-400 text-sm font-sans italic">
               Merci pour votre compréhension
             </p>
