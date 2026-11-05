@@ -7,14 +7,13 @@ interface LocationProps {
 }
 
 export default function Location({ data }: LocationProps) {
-  // Format search query for embed map
   const embedQuery = encodeURIComponent(data.venueAddress);
   const embedUrl = `https://maps.google.com/maps?q=${embedQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section 
       id="lieu" 
-      className="py-24 px-6 md:px-12 bg-ivory text-darksoft relative flex flex-col items-center"
+      className="py-24 px-6 md:px-12 bg-white text-[#0b1220] relative flex flex-col items-center"
     >
       <div className="max-w-4xl w-full">
         {/* Header Title */}
@@ -24,9 +23,9 @@ export default function Location({ data }: LocationProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold-300 bg-gold-50 mb-4"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#d4af37]/50 bg-[#fbf9f5] mb-4 shadow-sm"
           >
-            <MapPin className="w-5 h-5 text-gold-500" />
+            <MapPin className="w-5 h-5 text-[#d4af37]" />
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -42,11 +41,11 @@ export default function Location({ data }: LocationProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl text-darksoft font-light"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0b1220] font-light"
           >
             Où se dire Oui ?
           </motion.h3>
-          <div className="w-16 h-[2px] bg-gold-300 mx-auto mt-4" />
+          <div className="w-16 h-[2px] bg-[#d4af37] mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -58,22 +57,22 @@ export default function Location({ data }: LocationProps) {
             transition={{ duration: 1.2 }}
             className="lg:col-span-5 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            <h4 className="font-serif text-2xl sm:text-3xl text-gold-600 font-medium">
+            <h4 className="font-serif text-2xl sm:text-3xl text-[#0b1220] font-bold">
               {data.venueName}
             </h4>
             
-            <p className="text-stone-600 font-sans font-light leading-relaxed text-sm sm:text-base max-w-md">
+            <p className="text-[#334155] font-sans font-light leading-relaxed text-sm sm:text-base max-w-md">
               Nous avons choisi ce havre de paix élégant pour partager ces moments précieux de fête et de complicité avec vous.
             </p>
 
             {/* Address box */}
-            <div className="event-card p-5 text-left w-full max-w-md shadow-sm">
-              <MapPin className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
+            <div className="event-card p-5 text-left w-full max-w-md shadow-md">
+              <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
               <div>
-                <p className="font-sans font-semibold text-xs uppercase tracking-wider text-stone-400">
+                <p className="font-sans font-semibold text-xs uppercase tracking-wider text-[#b88e53]">
                   Adresse
                 </p>
-                <p className="font-sans font-light text-stone-700 text-sm mt-1 leading-relaxed">
+                <p className="font-sans font-medium text-[#0b1220] text-sm mt-1 leading-relaxed">
                   {data.venueAddress}
                 </p>
               </div>
@@ -84,11 +83,11 @@ export default function Location({ data }: LocationProps) {
               href={data.venueGoogleMapsUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-600 hover:bg-gold-500 active:scale-95 text-white font-sans text-xs uppercase tracking-widest font-medium shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#d4af37] text-[#0b1220] hover:bg-[#fce879] active:scale-95 font-sans text-xs uppercase tracking-widest font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer w-full sm:w-auto justify-center"
             >
-              <Compass className="w-4 h-4" />
+              <Compass className="w-4 h-4 text-[#0b1220]" />
               <span>Voir sur Google Maps</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#0b1220]" />
             </a>
           </motion.div>
 
@@ -98,7 +97,7 @@ export default function Location({ data }: LocationProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.4 }}
-            className="lg:col-span-7 bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(140,100,29,0.06)] border border-stone-100 p-2 h-[320px] sm:h-[400px]"
+            className="lg:col-span-7 bg-[#fbf9f5] rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-[#d4af37]/40 p-2 h-[320px] sm:h-[400px]"
           >
             <div className="w-full h-full rounded-2xl overflow-hidden relative">
               <iframe

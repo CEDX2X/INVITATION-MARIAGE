@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 interface PetalItem {
   id: number;
   left: number;       // starting horizontal position (%)
-  size: number;       // scale size in px (e.g. 15 to 26)
+  size: number;       // scale size in px (e.g. 14 to 26)
   delay: number;      // animation delay (negative to pre-fill screen)
   duration: number;   // animation speed (s)
   drift: number;      // horizontal wind offset (px)
@@ -16,17 +16,16 @@ export default function FallingPetals() {
   const [petals, setPetals] = useState<PetalItem[]>([]);
 
   useEffect(() => {
-    const count = 32; // Perfect organic density
+    const count = 32; // Organic density
     const items: PetalItem[] = [];
 
     for (let i = 0; i < count; i++) {
-      // Negative delays ensure the page is already filled with petals on load
       const delay = Math.random() * 12 - 12; // -12s to 0s
-      const duration = Math.random() * 6 + 7;  // 7s to 13s (slow cinematic fall)
+      const duration = Math.random() * 6 + 7;  // 7s to 13s
       const left = Math.random() * 100;
       const size = Math.random() * 12 + 14;    // 14px to 26px
-      const drift = Math.random() * 180 - 60;  // -60px to 120px horizontal drift
-      const rotation = Math.random() * 360 + 270; // 270deg to 630deg twist
+      const drift = Math.random() * 180 - 60;  // -60px to 120px drift
+      const rotation = Math.random() * 360 + 270;
       const shapeType = Math.floor(Math.random() * 3) as 0 | 1 | 2;
       const gradientId = `petal-grad-${i % 3}`;
 
@@ -46,11 +45,11 @@ export default function FallingPetals() {
     setPetals(items);
   }, []);
 
-  // SVG Paths for 3 organic rose petal shapes
+  // SVG Paths for organic petal shapes
   const petalPaths = [
-    // 1. Full Rounded Heart-Shaped Petal
+    // 1. Rounded Heart-Shaped Petal
     "M12 2 C16.5 -1.5, 23 2, 22.5 10 C22 16.5, 17 21, 12 23 C7 21, 2 16.5, 1.5 10 C1 2, 7.5 -1.5, 12 2 Z",
-    // 2. Slightly Asymmetric Swaying Petal
+    // 2. Asymmetric Swaying Petal
     "M10 2 C15.5 0, 21.5 5, 19.5 12 C17.5 18, 12.5 22.5, 8 23.5 C3.5 22, 0.5 16, 2.5 11 C4 6, 5.5 2.5, 10 2 Z",
     // 3. Delicate Pointed Petal Leaf
     "M12 1 C16 4, 18 10, 15.5 17 C13.5 21, 10.5 23.5, 8.5 24 C6.5 23.5, 3.5 21, 2.5 17 C-0.5 10, 1.5 4, 5.5 1 C8 -1, 10 -1, 12 1 Z"
@@ -58,28 +57,28 @@ export default function FallingPetals() {
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-25">
-      {/* SVG Definitions for Rose Petal Gradients */}
+      {/* SVG Definitions for Pristine White & Metallic Gold Petal Gradients */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
-          {/* Gradient 1: Deep Crimson Red */}
+          {/* Gradient 0: Pure White Rose Petal */}
           <linearGradient id="petal-grad-0" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ff3366" />
-            <stop offset="40%" stopColor="#C70039" />
-            <stop offset="100%" stopColor="#580C2E" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="70%" stopColor="#f7f5f0" />
+            <stop offset="100%" stopColor="#e2d8c3" />
           </linearGradient>
 
-          {/* Gradient 2: Bright Romance Scarlet */}
+          {/* Gradient 1: Shimmering Metallic Gold Accent */}
           <linearGradient id="petal-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#E51D2E" />
-            <stop offset="60%" stopColor="#A3001E" />
-            <stop offset="100%" stopColor="#3B0311" />
+            <stop offset="0%" stopColor="#fce879" />
+            <stop offset="50%" stopColor="#d4af37" />
+            <stop offset="100%" stopColor="#b88e53" />
           </linearGradient>
 
-          {/* Gradient 3: Soft Fuchsia / Raspberry Spark */}
+          {/* Gradient 2: Soft Cream & Ivory Rose Petal */}
           <linearGradient id="petal-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#DF016E" />
-            <stop offset="50%" stopColor="#C70039" />
-            <stop offset="100%" stopColor="#1C020B" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="60%" stopColor="#faf6ee" />
+            <stop offset="100%" stopColor="#d9cbb2" />
           </linearGradient>
         </defs>
       </svg>
@@ -96,7 +95,6 @@ export default function FallingPetals() {
             height: `${petal.size}px`,
             animationDelay: `${petal.delay}s`,
             animationDuration: `${petal.duration}s`,
-            // Injecting CSS Custom Variables dynamically for performance
             ["--petal-drift" as any]: `${petal.drift}px`,
             ["--petal-rotation" as any]: `${petal.rotation}deg`,
           }}
@@ -106,17 +104,16 @@ export default function FallingPetals() {
             width="100%"
             height="100%"
             fill={`url(#${petal.gradientId})`}
-            className="filter drop-shadow-[1px 3px 4px rgba(0,0,0,0.4)]"
+            className="filter drop-shadow-[1px_3px_5px_rgba(0,0,0,0.5)]"
             style={{
               transform: `rotate(${Math.random() * 90}deg)`,
-              opacity: Math.random() * 0.25 + 0.75, // Soft opacity variation
+              opacity: Math.random() * 0.25 + 0.75,
             }}
           >
-            {/* Organic petal shape path with vein shading */}
             <path d={petalPaths[petal.shapeType]} />
             <path 
               d="M12 2 C12.5 8, 12.5 15, 12 22" 
-              stroke="rgba(255, 255, 255, 0.16)" 
+              stroke="rgba(255, 255, 255, 0.22)" 
               strokeWidth="0.8" 
               fill="none" 
             />

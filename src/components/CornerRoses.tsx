@@ -1,21 +1,18 @@
-// Remote corner roses image (placed on extremities of the site)
-const cornerRosesUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
+// User uploaded white roses corner image
+const cornerRosesUrl = "/assets/aistudio/2_f42631b9.png";
 
 interface CornerRosesProps {
-  // Allow choosing specific corners (e.g., only bottom-left and top-right like the envelope screen)
   corners?: ("top-left" | "top-right" | "bottom-left" | "bottom-right")[];
 }
 
 export default function CornerRoses({ corners = ["top-left", "top-right", "bottom-left", "bottom-right"] }: CornerRosesProps) {
-  // Bouquet image rendered with gentle sway animation and responsive scaling
-  // `extraClasses` lets callers increase size/offset so we can render multiple overlapping bouquets
   const renderBouquet = (rotationClass: string, extraClasses = "") => (
     <div
-      className={`absolute pointer-events-none z-30 filter drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)] ${extraClasses} ${rotationClass}`}
+      className={`absolute pointer-events-none z-30 filter drop-shadow-[0_4px_16px_rgba(212,175,55,0.25)] ${extraClasses} ${rotationClass}`}
     >
       <img 
         src={cornerRosesUrl} 
-        alt="Bouquet de Roses Réaliste" 
+        alt="Roses Blanches Élégantes" 
         className="w-full h-full object-contain"
       />
     </div>
@@ -23,7 +20,7 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-25">
-      {/* Top Left Corner - several overlapping bouquets, larger and more numerous */}
+      {/* Top Left Corner */}
       {corners.includes("top-left") && (
         <>
           {renderBouquet("top-0 left-0 origin-top-left -translate-x-2 -translate-y-2 sm:-translate-x-1 sm:-translate-y-1 rotate-0", "w-40 h-40 sm:w-48 sm:h-48 -translate-x-1 -translate-y-1")}
@@ -32,7 +29,7 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
         </>
       )}
 
-      {/* Top Right Corner - several overlapping bouquets, larger and more numerous */}
+      {/* Top Right Corner */}
       {corners.includes("top-right") && (
         <>
           {renderBouquet("top-0 right-0 origin-top-right translate-x-2 -translate-y-2 sm:translate-x-1 sm:-translate-y-1 -rotate-90", "w-40 h-40 sm:w-48 sm:h-48 translate-x-1 -translate-y-1")}
@@ -41,7 +38,7 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
         </>
       )}
 
-      {/* Bottom Left Corner - several overlapping bouquets, larger and more numerous */}
+      {/* Bottom Left Corner */}
       {corners.includes("bottom-left") && (
         <>
           {renderBouquet("bottom-0 left-0 origin-bottom-left -translate-x-2 translate-y-2 sm:-translate-x-1 sm:translate-y-1 rotate-90", "w-40 h-40 sm:w-48 sm:h-48 -translate-x-1 translate-y-1")}
@@ -50,7 +47,7 @@ export default function CornerRoses({ corners = ["top-left", "top-right", "botto
         </>
       )}
 
-      {/* Bottom Right Corner - several overlapping bouquets, larger and more numerous */}
+      {/* Bottom Right Corner */}
       {corners.includes("bottom-right") && (
         <>
           {renderBouquet("bottom-0 right-0 origin-bottom-right translate-x-2 translate-y-2 sm:translate-x-1 sm:translate-y-1 rotate-180", "w-40 h-40 sm:w-48 sm:h-48 translate-x-1 translate-y-1")}

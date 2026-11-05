@@ -24,7 +24,7 @@ export default function Gift({ data }: GiftProps) {
   return (
     <section 
       id="cadeau" 
-      className="py-20 px-6 bg-white text-darksoft border-y border-gold-100 flex flex-col items-center"
+      className="py-20 px-6 bg-white text-[#0b1220] border-y border-[#d4af37]/20 flex flex-col items-center"
     >
       <div className="max-w-xl w-full text-center">
         {/* Header Icon */}
@@ -33,9 +33,9 @@ export default function Gift({ data }: GiftProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold-300 bg-gold-50 mb-4"
+          className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#d4af37]/50 bg-[#fbf9f5] mb-4 shadow-sm"
         >
-          <GiftIcon className="w-5 h-5 text-gold-500" />
+          <GiftIcon className="w-5 h-5 text-[#d4af37]" />
         </motion.div>
 
         <motion.h2
@@ -53,7 +53,7 @@ export default function Gift({ data }: GiftProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="font-serif text-3xl text-darksoft font-light mb-6"
+          className="font-serif text-3xl text-[#0b1220] font-light mb-6"
         >
           Notre Liste de Mariage
         </motion.h3>
@@ -65,15 +65,15 @@ export default function Gift({ data }: GiftProps) {
           transition={{ duration: 1.2, delay: 0.1 }}
           className="space-y-6 max-w-lg mx-auto"
         >
-          <p className="text-stone-500 font-sans font-light leading-relaxed text-sm sm:text-base">
+          <p className="text-[#334155] font-sans font-light leading-relaxed text-sm sm:text-base">
             {data.giftNote}
           </p>
 
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-300 text-gold-600 hover:text-gold-700 hover:bg-gold-50/40 active:scale-95 font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#d4af37] text-[#1c315e] hover:text-[#0b1220] hover:bg-[#fbf9f5] active:scale-95 font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 cursor-pointer shadow-sm"
           >
-            <GiftIcon className="w-4 h-4" />
+            <GiftIcon className="w-4 h-4 text-[#d4af37]" />
             <span>{showDetails ? "Masquer les détails" : "Envoyer un cadeau / contribution"}</span>
           </button>
         </motion.div>
@@ -88,28 +88,28 @@ export default function Gift({ data }: GiftProps) {
               transition={{ duration: 0.4 }}
               className="mt-6 overflow-hidden max-w-sm mx-auto"
             >
-              <div className="event-card p-5 text-left space-y-4 shadow-sm relative">
-                <div className="absolute top-4 right-4 pointer-events-none opacity-10">
-                  <Heart className="w-12 h-12 text-gold-500 fill-gold-500" />
+              <div className="event-card p-5 text-left space-y-4 shadow-md relative bg-[#fbf9f5]">
+                <div className="absolute top-4 right-4 pointer-events-none opacity-20">
+                  <Heart className="w-12 h-12 text-[#d4af37] fill-[#d4af37]" />
                 </div>
 
                 <div>
-                  <h4 className="font-serif text-lg font-medium text-stone-800">
+                  <h4 className="font-serif text-lg font-bold text-[#0b1220]">
                     Mobile Money / Orange Money
                   </h4>
-                  <p className="text-stone-400 text-[10px] uppercase font-sans tracking-widest mt-1">
+                  <p className="text-[#64748b] text-[10px] uppercase font-sans tracking-widest mt-1 font-medium">
                     Titulaire du compte : {data.mobileMoneyName}
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between bg-white rounded-xl p-3 border border-stone-100 mt-2">
-                  <div className="font-mono text-stone-700 text-sm font-medium tracking-wide">
+                <div className="flex items-center justify-between bg-white rounded-xl p-3 border border-[#d4af37]/40 mt-2 shadow-sm">
+                  <div className="font-mono text-[#0b1220] text-sm font-bold tracking-wide">
                     {data.mobileMoneyNumber}
                   </div>
                   
                   <button
                     onClick={handleCopy}
-                    className="p-2 transition-colors duration-300 bg-gold-50 hover:bg-gold-100 text-gold-600 rounded-lg cursor-pointer"
+                    className="p-2 transition-colors duration-300 bg-[#fbf9f5] hover:bg-[#d4af37] text-[#0b1220] rounded-lg cursor-pointer border border-[#d4af37]/40"
                     title="Copier le numéro"
                   >
                     {copied ? (
@@ -124,7 +124,7 @@ export default function Gift({ data }: GiftProps) {
                   <motion.p 
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-emerald-700 font-sans text-[11px] font-semibold text-center mt-1"
+                    className="text-emerald-600 font-sans text-[11px] font-semibold text-center mt-1"
                   >
                     ✓ Numéro copié avec succès !
                   </motion.p>

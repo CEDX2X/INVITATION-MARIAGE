@@ -3,7 +3,7 @@ import { ChevronDown, Calendar, MapPin } from "lucide-react";
 import { WeddingData } from "../data/weddingData";
 import FallingPetals from "./FallingPetals";
 
-const heroSideRoseUrl = "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2F4.png?alt=media&token=dd450cbd-4915-4d37-b529-487a9ef5982d";
+const heroSideRoseUrl = "/assets/aistudio/2_f42631b9.png";
 
 interface HeroProps {
   data: WeddingData;
@@ -93,12 +93,12 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
           transition={{ duration: 1.5, delay: 0.9 }}
           className="flex flex-col items-center gap-2 mt-4"
         >
-          <div className="flex items-center gap-2 text-white/90 text-sm tracking-widest font-sans font-light bg-black/20 backdrop-blur-[2px] px-4 py-2 rounded-full border border-white/10">
-            <Calendar className="w-4 h-4 text-gold-300" />
+          <div className="flex items-center gap-2 text-white/90 text-sm tracking-widest font-sans font-light bg-[#121e36]/90 backdrop-blur-md px-4 py-2 rounded-md border border-[#d4af37]/40 shadow-sm">
+            <Calendar className="w-4 h-4 text-[#d4af37]" />
             <span>{data.weddingDateFormatted}</span>
           </div>
           <div className="flex items-center gap-2 text-white/95 text-xs tracking-widest font-sans font-extralight mt-1">
-            <MapPin className="w-3.5 h-3.5 text-gold-300" />
+            <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
             <span>{data.venueName}</span>
           </div>
         </motion.div>
@@ -114,11 +114,9 @@ export default function Hero({ data, onOpen, isOpen }: HeroProps) {
         <button
           id="btn-ouvrir-invitation"
           onClick={handleOpenClick}
-          className="group relative w-full max-w-[260px] px-8 py-3.5 rounded-full overflow-hidden border border-gold-300 bg-black/40 text-white font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:border-gold-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+          className="group relative w-full max-w-[260px] px-8 py-3.5 rounded-md border border-[#d4af37] bg-[#d4af37] text-[#0b1220] font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 hover:bg-[#fce879] shadow-md cursor-pointer"
         >
-          {/* Gentle glow effect behind or inside button */}
-          <span className="absolute inset-0 w-full h-full bg-gold-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <span className="relative z-10 font-medium">Ouvrir l'invitation</span>
+          <span className="relative z-10">Ouvrir l'invitation</span>
         </button>
 
         <motion.div

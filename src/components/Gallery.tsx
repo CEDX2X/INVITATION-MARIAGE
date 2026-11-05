@@ -12,7 +12,6 @@ export default function Gallery({ data }: GalleryProps) {
 
   const openLightbox = (index: number) => {
     setActivePhotoIndex(index);
-    // Secure body scroll lock when lightbox is active
     document.body.style.overflow = "hidden";
   };
 
@@ -38,7 +37,7 @@ export default function Gallery({ data }: GalleryProps) {
   return (
     <section 
       id="galerie" 
-      className="py-24 px-6 md:px-12 bg-white text-darksoft relative flex flex-col items-center"
+      className="py-24 px-6 md:px-12 bg-white text-[#0b1220] relative flex flex-col items-center"
     >
       <div className="max-w-5xl w-full">
         {/* Header Title */}
@@ -48,16 +47,16 @@ export default function Gallery({ data }: GalleryProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold-300 bg-gold-50 mb-4"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#d4af37]/50 bg-[#fbf9f5] mb-4 shadow-sm"
           >
-            <Image className="w-5 h-5 text-gold-500" />
+            <Image className="w-5 h-5 text-[#d4af37]" />
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-gold-600 mb-2"
+            className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-[#1c315e] mb-2"
           >
             Souvenirs
           </motion.h2>
@@ -66,14 +65,14 @@ export default function Gallery({ data }: GalleryProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl text-darksoft font-light"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0b1220] font-light"
           >
             Notre Album Photo
           </motion.h3>
-          <div className="w-16 h-[2px] bg-gold-300 mx-auto mt-4" />
+          <div className="w-16 h-[2px] bg-[#d4af37] mx-auto mt-4" />
         </div>
 
-        {/* Main gallery preview (first two photos) */}
+        {/* Main gallery preview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {data.galleryImages.slice(0, 2).map((image, index) => {
             const sizeClass = index === 0 ? "md:col-span-2 h-[420px] md:h-[520px]" : "h-[320px] sm:h-[420px]";
@@ -86,7 +85,7 @@ export default function Gallery({ data }: GalleryProps) {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1, delay: index * 0.1 }}
                 onClick={() => openLightbox(index)}
-                className={`${sizeClass} relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500`}
+                className={`${sizeClass} relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-[#fbf9f5] border border-[#d4af37]/35 hover:border-[#d4af37] transition-all duration-500`}
               >
                 <img
                   src={image.url}
@@ -95,9 +94,9 @@ export default function Gallery({ data }: GalleryProps) {
                   referrerPolicy="no-referrer"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
                   <div>
-                    <span className="text-[10px] uppercase tracking-widest text-gold-300 font-sans font-medium">
+                    <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-sans font-medium">
                       Album
                     </span>
                     <p className="font-serif text-white text-lg mt-0.5 font-light">
@@ -105,76 +104,89 @@ export default function Gallery({ data }: GalleryProps) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute inset-0 border border-gold-300/0 group-hover:border-gold-300/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
+                <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
               </motion.div>
             );
           })}
         </div>
 
-        {/* Dress code section inserted after the first two gallery images */}
-        <div className="mt-14 text-center">
-          <span className="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-rose-500">
-            Dress code
+        {/* Dress code section */}
+        <div className="mt-16 text-center">
+          <span className="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-[#b88e53]">
+            Dress Code
           </span>
-          <h4 className="font-serif text-3xl sm:text-4xl text-darksoft mt-3 font-light">
-            Inspiration pour la soirée
+          <h4 className="font-serif text-3xl sm:text-4xl text-[#0b1220] mt-3 font-light">
+            Palette & Inspiration pour la Soirée
           </h4>
-          <div className="w-16 h-[2px] bg-rose-300 mx-auto mt-4" />
+          <div className="w-16 h-[2px] bg-[#d4af37] mx-auto mt-4" />
         </div>
 
-        {/* Elegant Dress Code section matching the card image */}
+        {/* Dress Code swatches matching the exact uploaded reference photo */}
         <div className="flex justify-center mt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="p-6 rounded-2xl bg-black/40 border border-[#F39EBF]/10 max-w-md w-full text-center"
+            className="p-6 sm:p-8 rounded-3xl bg-[#fbf9f5] border border-[#d4af37]/40 max-w-xl w-full text-center shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
           >
-            <h4 className="font-serif text-lg text-white font-medium mb-3 tracking-wide">
-              Dress Code : Chic & Glamour
+            <h4 className="font-serif text-lg sm:text-xl text-[#0b1220] font-bold mb-2 tracking-wide">
+              Chic, Élégance & Distinction
             </h4>
-            <p className="text-stone-400 text-xs font-sans tracking-wide mb-5">
-              Faites briller notre journée en arborant les nuances de notre thème :
+            <p className="text-[#334155] text-xs font-sans tracking-wide mb-6">
+              Assortissez vos tenues aux nuances officielles de notre célébration :
             </p>
-            <div className="flex items-center justify-center gap-6 sm:gap-8">
-              {/* Bordeaux */}
+            <div className="grid grid-cols-5 gap-2 sm:gap-4 items-center justify-center">
+              {/* Bleu Nuit */}
               <div className="flex flex-col items-center gap-2">
                 <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#330314" }}
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#0b1220" }}
+                  title="Bleu Nuit"
                 />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Bordeaux</span>
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Bleu Nuit</span>
               </div>
-              {/* Red */}
+              {/* Bleu Royal */}
               <div className="flex flex-col items-center gap-2">
                 <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#E51D2E" }}
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#1c315e" }}
+                  title="Bleu Royal"
                 />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Rouge</span>
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Bleu Royal</span>
               </div>
-              {/* Fuchsia */}
+              {/* Or Métallique */}
               <div className="flex flex-col items-center gap-2">
                 <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#DF016E" }}
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#d4af37" }}
+                  title="Or Métallique"
                 />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Fuchsia</span>
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Or Métallique</span>
               </div>
-              {/* Rose poudré */}
+              {/* Champagne */}
               <div className="flex flex-col items-center gap-2">
                 <div 
-                  className="w-12 h-12 rounded-full border border-white/20 shadow-md transform hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#F39EBF" }}
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#e5d3b3" }}
+                  title="Champagne"
                 />
-                <span className="text-[10px] uppercase font-sans tracking-widest text-[#F39EBF]/80 font-medium">Rose poudré</span>
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Champagne</span>
+              </div>
+              {/* Blanc Ivoire */}
+              <div className="flex flex-col items-center gap-2">
+                <div 
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#ffffff" }}
+                  title="Blanc Ivoire"
+                />
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Ivoire</span>
               </div>
             </div>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {data.galleryImages.slice(2).map((image, index) => (
             <motion.div
               key={image.url}
@@ -183,7 +195,7 @@ export default function Gallery({ data }: GalleryProps) {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1, delay: index * 0.08 }}
               onClick={() => openLightbox(index + 2)}
-              className="h-[260px] relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm bg-stone-50 border border-stone-100 hover:border-gold-300 transition-all duration-500"
+              className="h-[260px] relative rounded-3xl overflow-hidden cursor-pointer group shadow-md bg-[#121e36] border border-[#d4af37]/25 hover:border-[#d4af37] transition-all duration-500"
             >
               <img
                 src={image.url}
@@ -192,9 +204,9 @@ export default function Gallery({ data }: GalleryProps) {
                 referrerPolicy="no-referrer"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-10">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-rose-300 font-sans font-medium">
+                  <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-sans font-medium">
                     Dress code
                   </span>
                   <p className="font-serif text-white text-lg mt-0.5 font-light">
@@ -202,7 +214,7 @@ export default function Gallery({ data }: GalleryProps) {
                   </p>
                 </div>
               </div>
-              <div className="absolute inset-0 border border-gold-300/0 group-hover:border-gold-300/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
+              <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/40 rounded-3xl transition-colors duration-500 pointer-events-none z-15" />
             </motion.div>
           ))}
         </div>

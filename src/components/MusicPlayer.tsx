@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Music, VolumeX, Volume2, Pause, Play } from "lucide-react";
+import { motion } from "motion/react";
+import { Music, VolumeX, Volume2 } from "lucide-react";
 
 interface MusicPlayerProps {
   audioUrl: string;
@@ -11,7 +11,6 @@ export default function MusicPlayer({ audioUrl, autoPlayTrigger }: MusicPlayerPr
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Attempt to play state whenever autoPlayTrigger becomes true
   useEffect(() => {
     if (autoPlayTrigger && audioRef.current) {
       audioRef.current.play()
@@ -60,19 +59,17 @@ export default function MusicPlayer({ audioUrl, autoPlayTrigger }: MusicPlayerPr
           transition={{ duration: 1, delay: 2 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`relative p-3.5 rounded-full shadow-[0_8px_30px_rgba(140,100,29,0.15)] border transition-all duration-500 flex items-center justify-center cursor-pointer ${
+          className={`relative p-3.5 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.5)] border transition-all duration-300 flex items-center justify-center cursor-pointer ${
             isPlaying 
-              ? "bg-gold-500 border-gold-400 text-white" 
-              : "bg-white border-gold-200 text-gold-500"
+              ? "bg-[#d4af37] border-[#fce879] text-[#0b1220]" 
+              : "bg-[#121e36] border-[#d4af37]/40 text-[#d4af37]"
           }`}
           title={isPlaying ? "Couper la musique" : "Activer la musique"}
         >
-          {/* Subtle spinning aura */}
           {isPlaying && (
-            <div className="absolute inset-0 rounded-full border border-gold-300 animate-ping opacity-35 pointer-events-none" />
+            <div className="absolute inset-0 rounded-xl border border-[#fce879] animate-ping opacity-35 pointer-events-none" />
           )}
 
-          {/* Smooth spinning icon container */}
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
             transition={{ 
@@ -85,12 +82,11 @@ export default function MusicPlayer({ audioUrl, autoPlayTrigger }: MusicPlayerPr
             <Music className="w-4 h-4 sm:w-5 h-5" />
           </motion.div>
 
-          {/* Small badge representing mute state */}
-          <div className="absolute -top-1 -right-1 bg-darksoft text-white rounded-full p-0.5 border border-white/20 text-[8px]">
+          <div className="absolute -top-1 -right-1 bg-[#0b1220] text-[#fbf9f5] rounded-full p-0.5 border border-[#d4af37]/30 text-[8px]">
             {isPlaying ? (
-              <Volume2 className="w-2.5 h-2.5" />
+              <Volume2 className="w-2.5 h-2.5 text-[#fce879]" />
             ) : (
-              <VolumeX className="w-2.5 h-2.5 text-stone-300" />
+              <VolumeX className="w-2.5 h-2.5 text-[#e5d3b3]" />
             )}
           </div>
         </motion.button>
