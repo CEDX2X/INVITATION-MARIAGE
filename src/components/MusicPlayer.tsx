@@ -11,17 +11,39 @@ export default function MusicPlayer({ audioUrl, autoPlayTrigger }: MusicPlayerPr
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const startPlayback = () => {
+    if (!audioRef.current) return;
+    audioRef.current.play()
+      .then(() => {
+        setIsPlaying(true);
+      })
+      .catch((err) => {
+        console.log("Attente d'interaction tactile pour lancer la musique :", err);
+      });
+  };
+
   useEffect(() => {
-    if (autoPlayTrigger && audioRef.current) {
-      audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((err) => {
-          console.log("Lecture automatique bloquée par le navigateur : requiert un clic.");
-        });
+    if (autoPlayTrigger) {
+      startPlayback();
     }
   }, [autoPlayTrigger]);
+
+  // Unlock audio playback on mobile Safari / Chrome upon first user touch anywhere
+  useEffect(() => {
+    const handleFirstTouch = () => {
+      if (audioRef.current && audioRef.current.paused) {
+        startPlayback();
+      }
+    };
+
+    window.addEventListener("touchstart", handleFirstTouch, { passive: true });
+    window.addEventListener("click", handleFirstTouch, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleFirstTouch);
+      window.removeEventListener("click", handleFirstTouch);
+    };
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -49,6 +71,7 @@ export default function MusicPlayer({ audioUrl, autoPlayTrigger }: MusicPlayerPr
         src={audioUrl} 
         loop 
         preload="auto"
+        playsInline
       />
 
       <div className="fixed bottom-6 right-6 z-40">

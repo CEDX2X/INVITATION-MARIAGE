@@ -42,16 +42,16 @@ export const weddingData: WeddingData = {
   weddingDateFormatted: "Samedi 26 Décembre 2026",
   countdownDate: "2026-12-26T14:00:00",
   whatsappNumber: "+237699999979", // Référence Cameroun
-  welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil. Votre présence à nos côtés rendra cette journée inoubliable.",
-  venueName: "Mairie de Douala 5ème & Restaurant Le Perroquet",
-  venueAddress: "Douala 5ème, Douala, Cameroun",
-  venueGoogleMapsUrl: "https://maps.google.com/?q=Mairie+de+Douala+5eme",
+  welcomeText: "Entourés de nos familles et amis, nous sommes heureux de vous convier à notre mariage civil le Samedi 26 Décembre 2026 à 14h précises à la Mairie de Douala 5ème, suivie d'un cocktail au restaurant le Perroquet à Bali. (Invitation strictement personnelle, valable pour 1 seule personne).",
+  venueName: "Mairie de Douala 5ème & Restaurant Le Perroquet à Bali",
+  venueAddress: "Mairie de Douala 5ème · Restaurant Le Perroquet, Quartier Bali, Douala, Cameroun",
+  venueGoogleMapsUrl: "https://maps.google.com/?q=Restaurant+Le+Perroquet+Bali+Douala",
   giftNote: "Votre présence est notre plus précieux présent. Pour ceux qui souhaitent nous accompagner dans notre nouvelle vie de couple, une attention sera disponible le jour J.",
   mobileMoneyNumber: "GAËLLE & HERMANN",
   mobileMoneyName: "GAËLLE & HERMANN",
   showGiftSection: true,
   romanticPhrase: "Deux vies, deux cœurs, unis pour un seul et même voyage.",
-  audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FDadju-Tayc%20ft%20Fally%20Ipupa%20%C3%89pouse%20moi%20(Clip%20Officiel)%20%5Bi9N54oVuRfo%5D.mp3?alt=media&token=dc2eae8e-3726-4bb0-965b-adb5c084eeeb",
+  audioMusicUrl: "https://firebasestorage.googleapis.com/v0/b/kylyoapp-8ec0b.firebasestorage.app/o/Weeding%2FWILSON%20-%20LE%20MONDE%20DOIT%20SAVOIR%20LYRICS%20VIDEO.mp3?alt=media&token=6a7eb452-5d80-463c-bdb2-67ed7d84c1d7",
   snapchatFilterUrl: "https://snapchat.com/t/AyTA1TY1",
   heroImage: "/assets/aistudio/photo_7_2026-11-04_10-19-07_c77de141.jpg",
   welcomeImage: "/assets/aistudio/photo_7_2026-11-04_10-19-07_c77de141.jpg",
@@ -123,14 +123,14 @@ export const weddingData: WeddingData = {
       id: "civil",
       time: "14h00 précises",
       title: "Célébration Civile",
-      description: "Notre mariage civil célébré à la Mairie de Douala 5ème à 14h précises.",
+      description: "Mariage civil célébré à la Mairie de Douala 5ème à 14h00 précises.",
       iconName: "rings"
     },
     {
       id: "cocktail",
       time: "16h00",
       title: "Cocktail & Festivités",
-      description: "Un cocktail chaleureux au restaurant Le Perroquet sous le thème Chic & Glamour.",
+      description: "Suivie d'un cocktail au restaurant le Perroquet à Bali sous le thème Chic & Glamour.",
       iconName: "glass"
     }
   ]

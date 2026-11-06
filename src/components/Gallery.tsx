@@ -136,51 +136,75 @@ export default function Gallery({ data }: GalleryProps) {
             <p className="text-[#334155] text-xs font-sans tracking-wide mb-6">
               Assortissez vos tenues aux nuances officielles de notre célébration :
             </p>
-            <div className="grid grid-cols-5 gap-2 sm:gap-4 items-center justify-center">
+            <div className="grid grid-cols-5 gap-1.5 sm:gap-4 items-start justify-items-center">
               {/* Bleu Nuit */}
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full">
                 <div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/60 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer shrink-0"
                   style={{ backgroundColor: "#0b1220" }}
                   title="Bleu Nuit"
                 />
-                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Bleu Nuit</span>
+                <div className="h-8 flex items-center justify-center text-center">
+                  <span className="text-[8px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold leading-tight">
+                    Bleu Nuit
+                  </span>
+                </div>
               </div>
+
               {/* Bleu Royal */}
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full">
                 <div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/60 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer shrink-0"
                   style={{ backgroundColor: "#1c315e" }}
                   title="Bleu Royal"
                 />
-                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Bleu Royal</span>
+                <div className="h-8 flex items-center justify-center text-center">
+                  <span className="text-[8px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold leading-tight">
+                    Bleu Royal
+                  </span>
+                </div>
               </div>
+
               {/* Or Métallique */}
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full">
                 <div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/60 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer shrink-0"
                   style={{ backgroundColor: "#d4af37" }}
                   title="Or Métallique"
                 />
-                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Or Métallique</span>
+                <div className="h-8 flex items-center justify-center text-center">
+                  <span className="text-[8px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold leading-tight">
+                    Or Métallique
+                  </span>
+                </div>
               </div>
+
               {/* Champagne */}
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full">
                 <div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/60 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer shrink-0"
                   style={{ backgroundColor: "#e5d3b3" }}
                   title="Champagne"
                 />
-                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Champagne</span>
+                <div className="h-8 flex items-center justify-center text-center">
+                  <span className="text-[8px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold leading-tight">
+                    Champagne
+                  </span>
+                </div>
               </div>
+
               {/* Blanc Ivoire */}
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full">
                 <div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/50 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#d4af37]/60 shadow-md transform hover:scale-110 transition-transform duration-300 cursor-pointer shrink-0"
                   style={{ backgroundColor: "#ffffff" }}
                   title="Blanc Ivoire"
                 />
-                <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold">Ivoire</span>
+                <div className="h-8 flex items-center justify-center text-center">
+                  <span className="text-[8px] sm:text-[10px] uppercase font-sans tracking-wider text-[#0b1220] font-semibold leading-tight">
+                    Ivoire
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>

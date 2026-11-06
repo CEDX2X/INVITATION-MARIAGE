@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { QrCode, Download, Share2, Check, Copy, UserCheck, Ticket } from "lucide-react";
+import { QrCode, Download, Share2, Check, Copy, Ticket } from "lucide-react";
 import html2canvas from "html2canvas";
 import confetti from "canvas-confetti";
 import { WeddingData } from "../data/weddingData";
@@ -12,9 +12,7 @@ interface TicketPassProps {
   onOpenScanner?: () => void;
 }
 
-export default function TicketPass({ data, guestName = "Invité Privilégié", ticketId = "GH-2026-8942", onOpenScanner }: TicketPassProps) {
-  const [currentGuestName, setCurrentGuestName] = useState(guestName);
-  const [isEditingName, setIsEditingName] = useState(false);
+export default function TicketPass({ data, guestName = "M. & Mme Invité Privilégié", ticketId = "GH-2026-8942", onOpenScanner }: TicketPassProps) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
@@ -59,7 +57,7 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
     return matrix;
   };
 
-  const qrMatrix = generateQrDataMatrix(`${data.brideName}-${data.groomName}-${cleanPassId}-${currentGuestName}`);
+  const qrMatrix = generateQrDataMatrix(`${data.brideName}-${data.groomName}-${cleanPassId}-${guestName}`);
 
   const triggerConfetti = () => {
     confetti({
@@ -86,7 +84,7 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
       const image = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = image;
-      link.download = `Billet_Mariage_${data.brideName}_${data.groomName}_${currentGuestName.replace(/\s+/g, '_')}.png`;
+      link.download = `Billet_Mariage_${data.brideName}_${data.groomName}_${guestName.replace(/\s+/g, '_')}.png`;
       link.click();
     } catch (err) {
       console.error("Erreur lors de la génération du billet image :", err);
@@ -96,7 +94,7 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
   };
 
   const handleShareWhatsApp = () => {
-    const text = `Voici mon Billet d'Accès Privilège pour le Mariage de ${data.brideName} & ${data.groomName} 💍\n📅 Date : ${data.weddingDateFormatted}\n📍 Lieu : ${data.venueName}\nPass VIP : #${cleanPassId}\nInvité : ${currentGuestName}`;
+    const text = `Voici mon Billet d'Accès Privilège pour le Mariage de ${data.brideName} & ${data.groomName} 💍\n📅 Date : ${data.weddingDateFormatted}\n📍 Lieu : ${data.venueName}\nPass VIP : #${cleanPassId}\nInvité : ${guestName}`;
     const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
@@ -146,51 +144,10 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
           <div className="w-16 h-[1px] bg-[#d4af37] mx-auto mt-4 opacity-70" />
         </div>
 
-        {/* Guest Name Customizer Bar */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 bg-[#fbf9f5] p-4 rounded-2xl border border-[#d4af37]/40 shadow-sm max-w-xl mx-auto">
-          <div className="flex items-center gap-2 text-xs text-[#1c315e]">
-            <UserCheck className="w-4 h-4 text-[#d4af37]" />
-            <span className="font-semibold">Nom sur le Billet :</span>
-          </div>
-
-          {isEditingName ? (
-            <div className="flex items-center gap-2 w-full sm:w-auto">
-              <input 
-                type="text" 
-                value={currentGuestName}
-                onChange={(e) => setCurrentGuestName(e.target.value)}
-                className="bg-white border border-[#d4af37] text-[#0b1220] text-xs px-3 py-1.5 rounded-lg focus:outline-none"
-                placeholder="Entrez votre nom"
-                autoFocus
-              />
-              <button 
-                onClick={() => { setIsEditingName(false); triggerConfetti(); }}
-                className="bg-[#d4af37] text-[#0b1220] font-bold text-xs px-3 py-1.5 rounded-lg hover:bg-[#fce879] transition-colors cursor-pointer"
-              >
-                Valider
-              </button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-sm font-bold text-[#0b1220]">{currentGuestName}</span>
-              <button 
-                onClick={() => setIsEditingName(true)}
-                className="text-[10px] uppercase font-sans tracking-wider text-[#b88e53] hover:underline ml-1 font-semibold cursor-pointer"
-              >
-                (Modifier)
-              </button>
-            </div>
-          )}
-        </div>
-
         {/* ELEGANT HANDCRAFTED WEDDING TICKET CARD */}
         <div className="relative max-w-xl mx-auto select-none" ref={ticketRef}>
           <div className="relative rounded-2xl bg-[#121e36] border border-[#d4af37]/50 shadow-[0_25px_60px_rgba(0,0,0,0.85)] overflow-hidden">
             
-            {/* Real Ticket Cutout Notches on Left & Right */}
-            <div className="absolute top-[67%] -left-4 w-8 h-8 rounded-full bg-[#0b1220] border-r border-[#d4af37]/50 z-30" />
-            <div className="absolute top-[67%] -right-4 w-8 h-8 rounded-full bg-[#0b1220] border-l border-[#d4af37]/50 z-30" />
-
             {/* Top Gold Foil Bar */}
             <div className="bg-[#d4af37] py-2 px-6 flex items-center justify-between text-[#0b1220] font-sans font-bold text-[10px] uppercase tracking-[0.25em]">
               <span>CÉLÉBRATION CIVILE • PASS PRIVÉ</span>
@@ -231,7 +188,7 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
               <div className="border-t border-b border-[#d4af37]/20 py-4 space-y-3 text-left">
                 <div className="flex justify-between items-baseline border-b border-[#d4af37]/10 pb-2">
                   <span className="text-[10px] uppercase tracking-widest text-[#e5d3b3] font-medium">Invité d'Honneur</span>
-                  <span className="font-serif text-sm font-bold text-[#fce879]">{currentGuestName}</span>
+                  <span className="font-serif text-sm font-bold text-[#fce879]">{guestName}</span>
                 </div>
 
                 <div className="flex justify-between items-baseline border-b border-[#d4af37]/10 pb-2">
@@ -462,7 +419,7 @@ export default function TicketPass({ data, guestName = "Invité Privilégié", t
                     Pass Accès VIP #{cleanPassId}
                   </h4>
                   <p className="text-white font-medium text-sm mt-1">
-                    {currentGuestName}
+                    {guestName}
                   </p>
                   <p className="text-[#e5d3b3] text-xs mt-2">
                     Présentez ce QR Code à l'hôte d'accueil à l'entrée de la cérémonie.

@@ -41,7 +41,7 @@ RÉPONSE D'INVITATION (RSVP)
 
 👤 Nom complet : ${fullName}
 ✨ Présence : ${presenceEmoji}
-👥 Nombre de personnes : ${attending ? guestCount : "0"}
+👥 Invitation : ${attending ? "1 Personne (Pass Individuel - Strictement Personnel)" : "0"}
 
 💬 Message pour les mariés : 
 "${message || "Tous nos vœux de bonheur pour ce magnifique voyage !"}"
@@ -173,7 +173,7 @@ Merci pour votre invitation !`;
                   </div>
                 </div>
 
-                {/* Guest dropdown */}
+                {/* Single guest invitation pass badge */}
                 <AnimatePresence>
                   {attending === true && (
                     <motion.div 
@@ -183,19 +183,18 @@ Merci pour votre invitation !`;
                       transition={{ duration: 0.3 }}
                       className="space-y-2 overflow-hidden"
                     >
-                      <label htmlFor="guestcount" className="block text-xs uppercase tracking-widest font-sans font-semibold text-[#1c315e]">
+                      <label className="block text-xs uppercase tracking-widest font-sans font-semibold text-[#1c315e]">
                         Nombre de Personnes
                       </label>
-                      <select
-                        id="guestcount"
-                        value={guestCount}
-                        onChange={(e) => setGuestCount(e.target.value)}
-                        className="w-full bg-white border border-[#d4af37]/40 rounded-xl px-4 py-3 text-[#0b1220] text-sm focus:outline-none focus:ring-1 focus:ring-[#d4af37] focus:border-[#d4af37] transition-colors"
-                      >
-                        <option value="1">1 Personne</option>
-                        <option value="2">2 Personnes (Couple)</option>
-                        <option value="3">3 Personnes (Famille)</option>
-                      </select>
+                      <div className="w-full bg-[#fbf9f5] border border-[#d4af37]/60 rounded-xl px-4 py-3 text-[#0b1220] text-xs font-sans font-medium flex items-center justify-between shadow-sm">
+                        <span className="font-semibold text-[#0b1220]">1 Personne (Pass Individuel)</span>
+                        <span className="text-[10px] uppercase font-bold text-[#b88e53] bg-[#d4af37]/15 px-2.5 py-1 rounded-md border border-[#d4af37]/30">
+                          Strictement Personnel
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-[#475569] italic font-sans">
+                        Chaque invitation est personnelle et valable pour un seul convive.
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
